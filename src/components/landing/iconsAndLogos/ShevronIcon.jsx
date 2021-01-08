@@ -12,9 +12,9 @@ function ShevronIcon(props) {
       <path
         d="M8.59961 15.8569L13.8853 10.5713L8.59961 5.28558"
         stroke="white"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
