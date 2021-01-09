@@ -7,10 +7,12 @@ const Div = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 480px;
+  width: ${({ width }) => {
+    return width ? width : "480px";
+  }};
 `;
 
-const PasswordStrengthMeter = ({ password }) => {
+const PasswordStrengthMeter = ({ password, width }) => {
   const testResult = zxcvbn(password);
   const num = (testResult.score * 100) / 4;
 
@@ -57,7 +59,7 @@ const PasswordStrengthMeter = ({ password }) => {
   });
 
   return (
-    <Div>
+    <Div width={width}>
       <span
         style={{
           // font-family: Avenir;
@@ -81,7 +83,11 @@ const PasswordStrengthMeter = ({ password }) => {
           height: "20px",
           border: " 1px solid #D6C8A8",
           background: "#FCFBF8",
-          width: "360px",
+          width: width
+            ? (() => {
+                return parseInt(width) - 100 + "px";
+              })()
+            : "360px",
           borderRadius: "8px",
         }}
       >

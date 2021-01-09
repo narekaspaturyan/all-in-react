@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../landing/Header";
 import styled from "styled-components";
 import Button from "../../../utils/Button";
 import Input from "../../../utils/Input";
-import LoginBottom from "./LoginBottom";
+
+import NewPasswordBottom from "./NewPasswordBottom";
+import PasswordStrengthMeter from "../register/PasswordStrengthMeter";
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 20px;
 `;
 
 const FormWrapper = styled.div`
@@ -20,7 +22,7 @@ const FormWrapper = styled.div`
   padding: 30px;
   position: static;
   width: 440px;
-  height: 400px;
+  height: fit-content;
   left: 0px;
   top: 0px;
   background: ${(props) => props.theme.white};
@@ -60,7 +62,6 @@ const Span2 = styled.span`
   line-height: 150%;
   color: ${(props) => props.theme.dark_Grey};
 `;
-
 const Span3 = styled.span`
   height: 21px;
   /* font-family: Avenir; */
@@ -71,47 +72,55 @@ const Span3 = styled.span`
   display: flex;
   align-items: center;
   color: #202020;
-  margin: 0 105px 0 20px;
+  margin: 30px 0;
   /* color: ${(props) => props.theme.dark_Grey}; */
 `;
 
-const CheckboxButtonWrapper = styled.div`
+const ButtonWrapper = styled.div`
   display: flex;
-  justify-content: start;
-  align-items: center;
+  justify-content: flex-end;
+  width: 360px;
 `;
 
-const Checkbox = styled.input`
-  border: 1px solid #002052;
-  border-radius: 3px;
-  height: 22px;
-  width: 22px;
-  margin: 0;
-`;
+function NewPassword(props) {
+  const [password, setPassword] = useState("");
 
-function Login(props) {
   return (
     <>
       <Header title="Account" />
       <Wrapper>
         <FormWrapper>
-          <Span1>Hi, do we know you?</Span1>
-          <Span2>Log in with the account?</Span2>
+          <Span1>Let’s try again</Span1>
+          <Span2>Enter your new Password</Span2>
           <Form>
-            <Input margin="20px 0" placeholder="E-mail" />
-            <Input margin="20px 0" type="password" placeholder="Password" />
+            <Input
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              margin="20px 0"
+              type="password"
+              placeholder="Password"
+            />
+            <Input
+              margin="20px 0"
+              type="password"
+              placeholder="Reset Password"
+            />
 
-            <CheckboxButtonWrapper>
-              <Checkbox type="checkbox" />
-              <Span3>Remember Data</Span3>
-              <Button title="Login" />
-            </CheckboxButtonWrapper>
+            <PasswordStrengthMeter width="360px" password={password} />
+            <Span3>
+              Your password should consist of at least 8 characters including at
+              least 1 digit and at least 1 special character.
+            </Span3>
+            <ButtonWrapper>
+              <Button size="lg" title="Save Password" />
+            </ButtonWrapper>
           </Form>
         </FormWrapper>
-        <LoginBottom />
+        <NewPasswordBottom />
       </Wrapper>
     </>
   );
 }
 
-export default Login;
+export default NewPassword;

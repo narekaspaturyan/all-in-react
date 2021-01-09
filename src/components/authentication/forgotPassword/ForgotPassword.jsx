@@ -19,8 +19,8 @@ const FormWrapper = styled.div`
   align-items: flex-start;
   padding: 30px;
   position: static;
-  width: 380px;
-  height: 230px;
+  width: 440px;
+  height: 290px;
   left: 0px;
   top: 0px;
   background: ${(props) => props.theme.white};
