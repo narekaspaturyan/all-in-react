@@ -50,7 +50,7 @@ const Span = styled.span`
   margin: 0 15px;
 `;
 
-function Header(props) {
+function Header({ title = "SignIn" }) {
   return (
     <Head>
       <LogoWrapper>
@@ -62,7 +62,7 @@ function Header(props) {
           {" "}
           <UserImageIcon />
         </Span>{" "}
-        <Span>SignIn</Span>{" "}
+        <Span>{title}</Span>{" "}
       </SignInAndUserContainer>{" "}
     </Head>
   );

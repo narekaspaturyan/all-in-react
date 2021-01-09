@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../landing/Header";
 import styled from "styled-components";
-import Button from "../../utils/Button";
-import Input from "../../utils/Input";
-import LoginBottom from "./LoginBottom";
+import Header from "../../landing/Header";
+import ForgotPasswordBottom from "./ForgotPasswordBottom";
+import Input from "../../../utils/Input";
+import Button from "../../../utils/Button";
 
 const Wrapper = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const FormWrapper = styled.div`
   padding: 30px;
   position: static;
   width: 380px;
-  height: 300px;
+  height: 230px;
   left: 0px;
   top: 0px;
   background: ${(props) => props.theme.white};
@@ -35,7 +35,7 @@ const FormWrapper = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   padding-top: 40px;
 `;
 
@@ -61,57 +61,23 @@ const Span2 = styled.span`
   color: ${(props) => props.theme.dark_Grey};
 `;
 
-const Span3 = styled.span`
-  height: 21px;
-  /* font-family: Avenir; */
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 150%;
-  display: flex;
-  align-items: center;
-  color: #202020;
-  margin: 0 105px 0 20px;
-  /* color: ${(props) => props.theme.dark_Grey}; */
-`;
-
-const CheckboxButtonWrapper = styled.div`
-  display: flex;
-  justify-content: start;
-  align-items: center;
-`;
-
-const Checkbox = styled.input`
-  border: 1px solid #002052;
-  border-radius: 3px;
-  height: 22px;
-  width: 22px;
-  margin: 0;
-`;
-
-function Login(props) {
+function ForgotPassword(props) {
   return (
     <>
-      <Header />
+      <Header title="Account" />
       <Wrapper>
         <FormWrapper>
-          <Span1>Hi, do we know you?</Span1>
-          <Span2>Log in with the account?</Span2>
+          <Span1>You forgot something?</Span1>
+          <Span2>Enter you E-Mail and reset Password</Span2>
           <Form>
-            <Input margin="20px 0" placeholder="E-mail" />
-            <Input margin="20px 0" type="password" placeholder="Password" />
-
-            <CheckboxButtonWrapper>
-              <Checkbox type="checkbox" />
-              <Span3>Remember Data</Span3>
-              <Button />
-            </CheckboxButtonWrapper>
+            <Input placeholder="E-mail" />
+            <Button margin="20px 0px" title="Reset Password" size="lg" />
           </Form>
         </FormWrapper>
-        <LoginBottom />
+        <ForgotPasswordBottom />
       </Wrapper>
     </>
   );
 }
 
-export default Login;
+export default ForgotPassword;
