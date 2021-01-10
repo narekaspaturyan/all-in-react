@@ -13,18 +13,20 @@ const Wrapper = styled.div`
 `;
 
 const Btn = styled.button`
-  width: 110px;
-  height: 40px;
-  border-radius: 10px;
+  width: ${({ width }) => (width ? width : "110px")};
+  height: ${({ height }) => (height ? height : "40px")};
+  border-radius: ${({ borderRadius }) =>
+    borderRadius ? borderRadius : "10px"};
   font-family: Avenir;
-  font-style: normal;
-  font-weight: 900;
-  line-height: 18px;
-  /* identical to box height, or 129% */
-  text-align: center;
-  letter-spacing: 0.7px;
-  text-transform: uppercase;
-  border: none;
+  font-style: ${({ fontStyle }) => (fontStyle ? fontStyle : "normal")};
+  font-weight: ${({ fontWeight }) => (fontWeight ? fontWeight : 900)};
+  line-height: ${({ lineHeight }) => (lineHeight ? lineHeight : "18px")};
+  text-align: ${({ textAlign }) => (textAlign ? textAlign : "center")};
+  letter-spacing: ${({ letterSpacing }) =>
+    letterSpacing ? letterSpacing : "1px"};
+  text-transform: ${({ textTransform }) =>
+    textTransform ? textTransform : "uppercase"};
+  border: ${({ border }) => (border ? border : "none")};
   cursor: pointer;
   ${({ size, theme, color, bgColor }) => {
     switch (size) {
@@ -55,10 +57,36 @@ const Btn = styled.button`
   }}
 `;
 
-function Button({ margin, size, title = "Button", color, bgColor }) {
+function Button({
+  borderRadius,
+  fontStyle,
+  fontWeight,
+  lineHeight,
+  textAlign,
+  border,
+  width,
+  height,
+  margin,
+  size,
+  title = "Button",
+  color,
+  bgColor,
+}) {
   return (
     <Wrapper margin={margin}>
-      <Btn bgColor={bgColor} color={color} size={size}>
+      <Btn
+        fontStyle={fontStyle}
+        borderRadius={borderRadius}
+        fontWeight={fontWeight}
+        lineHeight={lineHeight}
+        textAlign={textAlign}
+        border={border}
+        width={width}
+        height={height}
+        bgColor={bgColor}
+        color={color}
+        size={size}
+      >
         {title}
       </Btn>
     </Wrapper>

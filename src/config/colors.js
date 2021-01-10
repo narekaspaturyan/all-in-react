@@ -10,5 +10,6 @@ export default {
   light_Blue: "#E2EAF9",
   light_Grey: "#F7F7F7",
   light_Grey_Inactive: "#777",
+  text_Grey: "#4f4f4f",
   white: "#fff",
 };
