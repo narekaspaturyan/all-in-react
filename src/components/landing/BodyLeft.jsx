@@ -8,7 +8,7 @@ const LeftSectionWrapper = styled.div`
   align-items: center;
   width: 45%;
   height: 600;
-  border: dotted red;
+  /* border: dotted red; */
 `;
 
 const LeftSectionInnerWrapper = styled.div`

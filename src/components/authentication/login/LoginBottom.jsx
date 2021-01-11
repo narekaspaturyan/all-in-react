@@ -1,7 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
+import { NavLink } from "react-router-dom";
+
 const Wrapper = styled.div`
+  .navlink {
+    color: ${(props) => props.theme.dark_Grey};
+  }
   margin-top: 10px;
   box-shadow: 0px 15px 30px rgba(134, 117, 79, 0.12);
   border-radius: 6px;
@@ -40,8 +45,17 @@ const Span2 = styled.span`
 function LoginBottom(props) {
   return (
     <Wrapper>
-      <Span1>Register</Span1>
-      <Span2>Forgot Password</Span2>
+      <Span1>
+        <NavLink className="navlink" to="/register">
+          Register
+        </NavLink>
+      </Span1>
+      <Span2>
+        {" "}
+        <NavLink className="navlink" to="/forgotPassword">
+          Forgot Password
+        </NavLink>
+      </Span2>
     </Wrapper>
   );
 }

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import Button from "../../../utils/Button";
-import Input from "../../../utils/Input";
+import Button from "../../utils/Button";
+import Input from "../../utils/Input";
 import RegisterBottom from "./RegisterBottom";
-import { useState } from "react";
+
+import Select from "../../utils/Select";
 import PasswordStrengthMeter from "./PasswordStrengthMeter";
 
 const Wrapper = styled.div`
@@ -32,7 +33,7 @@ const FormWrapper = styled.div`
   margin: 0px 30px;
 `;
 
-const Form = styled.form`
+const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -104,50 +105,51 @@ const ButtonWrapper = styled.div`
 function Register(props) {
   const [password, setPassword] = useState("");
 
-  console.log(password, "password");
   return (
     <>
       <Wrapper>
         <FormWrapper>
           <Span1>Nice to meet you, fill in your data</Span1>
-          <Form>
-            <Input width="480px" margin="10px 0" placeholder="Gender" />
-            <Input width="480px" margin="10px 0" placeholder="Full Name" />
-            <Input width="480px" margin="10px 0" placeholder="E-mail" />
-            <Input
-              width="480px"
-              margin="10px 0"
-              type="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <Input
-              width="480px"
-              margin="10px 0"
-              type="password"
-              placeholder="Repeat Password"
-            />
+          <Div>
+            <Select />
+            <form>
+              <Input width="480px" margin="10px 0" placeholder="Full Name" />
+              <Input width="480px" margin="10px 0" placeholder="E-mail" />
+              <Input
+                width="480px"
+                margin="10px 0"
+                type="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Input
+                width="480px"
+                margin="10px 0"
+                type="password"
+                placeholder="Repeat Password"
+              />
 
-            <PasswordStrengthMeter password={password} />
-            <Span3>
-              Your password should consist of at least 8 characters including at
-              least 1 digit and at least 1 special character.
-            </Span3>
-            <CheckboxButtonWrapper>
-              <Span2>
-                <Checkbox type="checkbox" /> Accept privacy policy
-              </Span2>
-              <Span2>
-                {" "}
-                <Checkbox type="checkbox" />
-                Accept Terms and conditions
-              </Span2>
-            </CheckboxButtonWrapper>
-            <RegisterBottom />
-            <ButtonWrapper>
-              <Button title="Register" size="xl" />
-            </ButtonWrapper>
-          </Form>
+              <PasswordStrengthMeter password={password} />
+              <Span3>
+                Your password should consist of at least 8 characters including
+                at least 1 digit and at least 1 special character.
+              </Span3>
+              <CheckboxButtonWrapper>
+                <Span2>
+                  <Checkbox type="checkbox" /> Accept privacy policy
+                </Span2>
+                <Span2>
+                  {" "}
+                  <Checkbox type="checkbox" />
+                  Accept Terms and conditions
+                </Span2>
+              </CheckboxButtonWrapper>
+              <RegisterBottom />
+              <ButtonWrapper>
+                <Button title="Register" size="xl" />
+              </ButtonWrapper>
+            </form>
+          </Div>
         </FormWrapper>
       </Wrapper>
     </>

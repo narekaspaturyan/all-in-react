@@ -1,8 +1,7 @@
 import React from "react";
-import Header from "../../landing/Header";
 import styled from "styled-components";
-import Button from "../../../utils/Button";
-import Input from "../../../utils/Input";
+import Button from "../../utils/Button";
+import Input from "../../utils/Input";
 import LoginBottom from "./LoginBottom";
 
 const Wrapper = styled.div`
@@ -91,26 +90,23 @@ const Checkbox = styled.input`
 
 function Login(props) {
   return (
-    <>
-      <Header title="Account" />
-      <Wrapper>
-        <FormWrapper>
-          <Span1>Hi, do we know you?</Span1>
-          <Span2>Log in with the account?</Span2>
-          <Form>
-            <Input margin="20px 0" placeholder="E-mail" />
-            <Input margin="20px 0" type="password" placeholder="Password" />
+    <Wrapper>
+      <FormWrapper>
+        <Span1>Hi, do we know you?</Span1>
+        <Span2>Log in with the account?</Span2>
+        <Form>
+          <Input margin="20px 0" placeholder="E-mail" />
+          <Input margin="20px 0" type="password" placeholder="Password" />
 
-            <CheckboxButtonWrapper>
-              <Checkbox type="checkbox" />
-              <Span3>Remember Data</Span3>
-              <Button title="Login" />
-            </CheckboxButtonWrapper>
-          </Form>
-        </FormWrapper>
-        <LoginBottom />
-      </Wrapper>
-    </>
+          <CheckboxButtonWrapper>
+            <Checkbox type="checkbox" />
+            <Span3>Remember Data</Span3>
+            <Button title="Login" />
+          </CheckboxButtonWrapper>
+        </Form>
+      </FormWrapper>
+      <LoginBottom />
+    </Wrapper>
   );
 }
 

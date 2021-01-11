@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import SuccessIcon from "../../landing/iconsAndLogos/SuccessIcon";
-import Button from "../../../utils/Button";
+import Button from "../../utils/Button";
 import colors from "../../../config/colors";
+
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;

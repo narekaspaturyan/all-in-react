@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 import EazyRentLogo from "./iconsAndLogos/EazyRentLogo";
 import UserImageIcon from "./iconsAndLogos/UserImageIcon";
 
 const Head = styled.header`
+  .navlink {
+    color: ${(props) => props.theme.text_Grey};
+  }
   position: relative;
   left: 0%;
   right: 0%;
@@ -73,7 +77,7 @@ const Ul = styled.ul`
   }
 `;
 
-function Header({ title = "SignIn", navBar = false }) {
+function Header({ title, navBar = false }) {
   return (
     <Head>
       <LogoWrapper>
@@ -82,18 +86,54 @@ function Header({ title = "SignIn", navBar = false }) {
       <SignInAndUserContainer>
         {navBar && (
           <Ul>
-            <li>Make a match</li>
-            <li>Add an Appartment</li>
-            <li>My Matches</li>
-            <li>Appartment listings</li>
-            <li>My Calendar</li>
+            <li>
+              <NavLink className="navlink" to="/">
+                Make a match
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink className="navlink" to="/">
+                Add an Appartment
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink className="navlink" to="/">
+                My Matches
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink className="navlink" to="/">
+                Appartment listings
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink className="navlink" to="/">
+                My Calendar
+              </NavLink>
+            </li>
           </Ul>
         )}
         <Span>
           {" "}
           <UserImageIcon />
         </Span>{" "}
-        <Span>{title}</Span>{" "}
+        {title === "SignIn" ? (
+          <Span>
+            <NavLink className="navlink" to="/login">
+              {title}
+            </NavLink>
+          </Span>
+        ) : (
+          <Span>
+            <NavLink className="navlink" to="/account">
+              {title}
+            </NavLink>
+          </Span>
+        )}
       </SignInAndUserContainer>{" "}
     </Head>
   );

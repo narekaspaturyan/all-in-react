@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import Header from "../../landing/Header";
 import Register from "./Register";
 
 const Wrapper = styled.div`
@@ -25,13 +24,10 @@ const Span = styled.span`
 
 function RegisterMain(props) {
   return (
-    <>
-      <Header title="Account" />
-      <Wrapper>
-        <Span>Register</Span>
-        <Register />
-      </Wrapper>
-    </>
+    <Wrapper>
+      <Span>Register</Span>
+      <Register />
+    </Wrapper>
   );
 }
 

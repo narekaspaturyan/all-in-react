@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import ConfirmationIcon from "../../landing/iconsAndLogos/ConfirmationIcon";
 
-import Header from "../../landing/Header";
-
 const Wrapper = styled.div`
   margin-top: 130px;
   display: flex;
@@ -70,20 +68,17 @@ const Button = styled.button`
 
 function Confirmation(props) {
   return (
-    <>
-      <Header title="Account" />
-      <Wrapper>
-        <InnerWrapper>
-          <ConfirmationIcon />
-          <Span1>Confirmation sent!</Span1>
-          <Span2>
-            We have sent a confirmation letter to your mail, follow the link in
-            it to continue
-          </Span2>
-          <Button>Resend Email</Button>
-        </InnerWrapper>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <InnerWrapper>
+        <ConfirmationIcon />
+        <Span1>Confirmation sent!</Span1>
+        <Span2>
+          We have sent a confirmation letter to your mail, follow the link in it
+          to continue
+        </Span2>
+        <Button>Resend Email</Button>
+      </InnerWrapper>
+    </Wrapper>
   );
 }
 

@@ -35,6 +35,9 @@ const Div = styled.div`
 
 const ButtonTenat = styled.button`
   /* font-family: Avenir; */
+  &:focus {
+    outline: none;
+  }
   font-size: 14px;
   font-style: normal;
   font-weight: 900;
@@ -58,6 +61,9 @@ const ButtonTenat = styled.button`
 
 const ButtonLandLord = styled.button`
   /* font-family: Avenir; */
+  &:focus {
+    outline: none;
+  }
   border: none;
   font-size: 14px;
   font-style: normal;

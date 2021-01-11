@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../../landing/Header";
 import YourProfile from "./YourProfile";
 
 const Wrapper = styled.div`
@@ -24,13 +23,10 @@ const Span = styled.span`
 
 function YourProfileMain(props) {
   return (
-    <>
-      <Header title="Account" navBar={true} />
-      <Wrapper>
-        <Span>Your Profile</Span>
-        <YourProfile />
-      </Wrapper>
-    </>
+    <Wrapper>
+      <Span>Your Profile</Span>
+      <YourProfile />
+    </Wrapper>
   );
 }
 

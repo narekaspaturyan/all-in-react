@@ -4,7 +4,7 @@ import styled from "styled-components";
 const RightSectionWrapper = styled.div`
   width: 55%;
   height: auto;
-  border: dotted red;
+  /* border: dotted red; */
   overflow: hidden;
 `;
 

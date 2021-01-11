@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../../landing/Header";
 
 const Wrapper = styled.div`
   display: flex;
@@ -34,8 +33,6 @@ const Span = styled.span`
 function WhatDoYouWant(props) {
   return (
     <>
-      {" "}
-      <Header title="Account" navBar />
       <SpanWrapper>
         <Span>What do you want?</Span>
       </SpanWrapper>

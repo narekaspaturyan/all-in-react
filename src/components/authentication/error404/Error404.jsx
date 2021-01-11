@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "../../../utils/Button";
+import Button from "../../utils/Button";
 import Error404Icon from "../../landing/iconsAndLogos/Error404Icon";
 
 const Wrapper = styled.div`

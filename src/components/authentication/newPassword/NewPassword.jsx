@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import Header from "../../landing/Header";
 import styled from "styled-components";
-import Button from "../../../utils/Button";
-import Input from "../../../utils/Input";
+import Button from "../../utils/Button";
+import Input from "../../utils/Input";
 
 import NewPasswordBottom from "./NewPasswordBottom";
 import PasswordStrengthMeter from "../register/PasswordStrengthMeter";
@@ -86,40 +85,33 @@ function NewPassword(props) {
   const [password, setPassword] = useState("");
 
   return (
-    <>
-      <Header title="Account" />
-      <Wrapper>
-        <FormWrapper>
-          <Span1>Let’s try again</Span1>
-          <Span2>Enter your new Password</Span2>
-          <Form>
-            <Input
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              margin="20px 0"
-              type="password"
-              placeholder="Password"
-            />
-            <Input
-              margin="20px 0"
-              type="password"
-              placeholder="Reset Password"
-            />
+    <Wrapper>
+      <FormWrapper>
+        <Span1>Let’s try again</Span1>
+        <Span2>Enter your new Password</Span2>
+        <Form>
+          <Input
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            margin="20px 0"
+            type="password"
+            placeholder="Password"
+          />
+          <Input margin="20px 0" type="password" placeholder="Reset Password" />
 
-            <PasswordStrengthMeter width="360px" password={password} />
-            <Span3>
-              Your password should consist of at least 8 characters including at
-              least 1 digit and at least 1 special character.
-            </Span3>
-            <ButtonWrapper>
-              <Button size="lg" title="Save Password" />
-            </ButtonWrapper>
-          </Form>
-        </FormWrapper>
-        <NewPasswordBottom />
-      </Wrapper>
-    </>
+          <PasswordStrengthMeter width="360px" password={password} />
+          <Span3>
+            Your password should consist of at least 8 characters including at
+            least 1 digit and at least 1 special character.
+          </Span3>
+          <ButtonWrapper>
+            <Button size="lg" title="Save Password" />
+          </ButtonWrapper>
+        </Form>
+      </FormWrapper>
+      <NewPasswordBottom />
+    </Wrapper>
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Input from "../../../utils/Input";
-import Btn from "../../../utils/Button";
+import Input from "../../utils/Input";
+import Btn from "../../utils/Button";
 
 const Wrapper = styled.div`
   display: flex;
@@ -94,7 +94,7 @@ function YourProfile(props) {
           <ImageAndButtonWrapper>
             <ImageWrapper>Img</ImageWrapper>
             <Button width="200px" margin="0px">
-              Update Password
+              Update Image
             </Button>
           </ImageAndButtonWrapper>
           <Form>

@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../../landing/Header";
 import ForgotPasswordBottom from "./ForgotPasswordBottom";
-import Input from "../../../utils/Input";
-import Button from "../../../utils/Button";
+import Input from "../../utils/Input";
+import Button from "../../utils/Button";
 
 const Wrapper = styled.div`
   display: flex;
@@ -63,20 +62,17 @@ const Span2 = styled.span`
 
 function ForgotPassword(props) {
   return (
-    <>
-      <Header title="Account" />
-      <Wrapper>
-        <FormWrapper>
-          <Span1>You forgot something?</Span1>
-          <Span2>Enter you E-Mail and reset Password</Span2>
-          <Form>
-            <Input placeholder="E-mail" />
-            <Button margin="20px 0px" title="Reset Password" size="lg" />
-          </Form>
-        </FormWrapper>
-        <ForgotPasswordBottom />
-      </Wrapper>
-    </>
+    <Wrapper>
+      <FormWrapper>
+        <Span1>You forgot something?</Span1>
+        <Span2>Enter you E-Mail and reset Password</Span2>
+        <Form>
+          <Input placeholder="E-mail" />
+          <Button margin="20px 0px" title="Reset Password" size="lg" />
+        </Form>
+      </FormWrapper>
+      <ForgotPasswordBottom />
+    </Wrapper>
   );
 }
 
