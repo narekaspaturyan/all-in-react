@@ -13,6 +13,7 @@ import Error404 from "./components/authentication/error404/Error404";
 import YourProfileMain from "./components/landlord/profile/YourProfileMain";
 import WhatDoYouWant from "./components/landlord/whatDoYouwant/WhatDoYouWant";
 import LandingMobile from "./components/landing/landingMobile/LandingMobile";
+import LandLordApartments from "./components/landlord/whatDoYouwant/addNewApartment/LandLordApartments";
 
 function App() {
   const [user, setUser] = useState(false); // fetch user
@@ -20,9 +21,10 @@ function App() {
   return (
     <div className="page-container">
       <div className="content-wrap">
-        <LandingMobile />
-        {/* <Header title={user ? "Account" : "SignIn"} navBar={user} />{" "} */}
-        {/* <Switch>
+        {/* <LandingMobile /> */}
+        <Header title={user ? "Account" : "SignIn"} navBar={user} />{" "}
+        <LandLordApartments />
+        {/*<Switch>
           <Route path="/register" component={RegisterMain} />
           <Route path="/landing" component={Landing} />
           <Route path="/account" component={YourProfileMain} />
@@ -31,6 +33,7 @@ function App() {
           <Route path="/notFound" component={Error404} />
           <Redirect to="/landing" />
         </Switch> */}
+        {/* <Error404 /> */}
         {/* <WhatDoYouWant /> */}
         {/* <NewPassword /> */}
         {/* <Confirmation /> */}

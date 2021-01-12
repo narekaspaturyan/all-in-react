@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ConfirmationIcon from "../../landing/iconsAndLogos/ConfirmationIcon";
+import ConfirmationIcon from "../../iconsAndLogos/ConfirmationIcon";
 
 const Wrapper = styled.div`
   margin-top: 130px;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ArrowRightIcon from "./iconsAndLogos/ArrowRightIcon";
+import ArrowRightIcon from "../iconsAndLogos/ArrowRightIcon";
 
 const Wrapper = styled.div`
   display: flex;

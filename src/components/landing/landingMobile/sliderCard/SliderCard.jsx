@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import RedShevronRightIcon from "../iconsAndLogos/RedShevronRightIcon";
+import RedShevronRightIcon from "../../../iconsAndLogos/RedShevronRightIcon";
 
 const Wrapper = styled.div`
   height: 344px;

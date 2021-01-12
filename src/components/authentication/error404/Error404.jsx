@@ -1,24 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../../utils/Button";
-import Error404Icon from "../../landing/iconsAndLogos/Error404Icon";
+import Error404Icon from "../../iconsAndLogos/Error404Icon";
+
+import bigImage from "../../landing/img/main.png";
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  height: auto;
 `;
 
 const WrapperLeft = styled.div`
   margin: 100px 0 0 100px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: column;
   align-items: flex-start;
   background-color: ${(props) => props.theme.white};
 `;
 
 const Span1 = styled.span`
-  margin-top: 30px;
+  margin: 30px 0 100px 0;
   width: 370px;
   height: 95px;
   /* font-family: Avenir; */
@@ -30,21 +34,39 @@ const Span1 = styled.span`
 `;
 
 const WrapperRight = styled.div`
+  width: 55%;
+  height: 500px;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
-  align-items: flex-start;
-  background-color: ${(props) => props.theme.white};
+`;
+
+const BigImageWrapper = styled.div`
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 function Error404(props) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => (document.body.style.overflow = "unset");
+  }, []);
+
   return (
     <Wrapper>
       <WrapperLeft>
         <Error404Icon />
         <Span1>Sorry, we are already working on fixing this error</Span1>
-        <Button margin="100px 0 0 0" size="xl" title="Go to main screen" />
+        <NavLink to="/landing">
+          <Button margin="0px" size="xl" title="Go to main screen" />
+        </NavLink>
       </WrapperLeft>
+      <WrapperRight>
+        <BigImageWrapper>
+          <img src={bigImage} alt="Landing" />
+        </BigImageWrapper>
+      </WrapperRight>
     </Wrapper>
   );
 }

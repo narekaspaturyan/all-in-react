@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-import Slider from "./Slider";
-import ArrowLeftIcon from "../iconsAndLogos/ArrowLeftIcon";
-import ShevronIcon from "../iconsAndLogos/ShevronIcon";
+import Slider from "./sliderCard/Slider";
+import ArrowLeftIcon from "../../iconsAndLogos/ArrowLeftIcon";
+import ShevronIcon from "../../iconsAndLogos/ShevronIcon";
 import img1 from "./img/1.png";
-import PerfectFit from "./PerfectFit";
+import PerfectFitCard from "./perfectFitCard/PerfectFitCard";
+import MuchMoreCard from "./muchMoreCard/MuchMoreCard";
+import BottomNavBar from "./bottomNavBar/BottomNavBar";
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,6 +16,7 @@ const Wrapper = styled.div`
   height: 100vh;
 `;
 const InnerWrapperMain = styled.div`
+  border: solid 1px red;
   width: 375px;
   height: 536px;
   overflow-x: hidden;
@@ -142,9 +145,13 @@ function LandingMobile(props) {
         </InnerWrapper2>
 
         <InnerWrapper3>
-          <PerfectFit />
+          <PerfectFitCard />
+        </InnerWrapper3>
+        <InnerWrapper3>
+          <MuchMoreCard />
         </InnerWrapper3>
       </InnerWrapperMain>
+      <BottomNavBar />
     </Wrapper>
   );
 }

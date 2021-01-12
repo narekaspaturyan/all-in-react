@@ -4,7 +4,7 @@ import styled from "styled-components";
 import BodyRight from "./BodyRight";
 import BodyLeft from "./BodyLeft";
 const BodyWrapper = styled.div`
-  height: auto;
+  height: 520px;
   width: 100vw;
   display: flex;
   justify-content: space-between;

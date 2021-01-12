@@ -23,6 +23,10 @@ const StyledButton = styled.button`
     width = "110px",
     height = "40px",
     margin = "0px",
+
+    display = "flex",
+    justifyContent = "space-around",
+    alignItems = "center",
   }) => {
     return {
       // fontFamily: Avenir,
@@ -33,6 +37,9 @@ const StyledButton = styled.button`
       color,
       cursor: "pointer",
 
+      ":focus": {
+        outline: "none",
+      },
       fontStyle,
       fontSize,
       fontWeight,
@@ -47,6 +54,10 @@ const StyledButton = styled.button`
       width,
       height,
       margin,
+
+      display,
+      justifyContent,
+      alignItems,
     };
   }};
 `;

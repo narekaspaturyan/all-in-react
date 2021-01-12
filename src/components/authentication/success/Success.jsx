@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SuccessIcon from "../../landing/iconsAndLogos/SuccessIcon";
+import SuccessIcon from "../../iconsAndLogos/SuccessIcon";
 import Button from "../../utils/Button";
 import colors from "../../../config/colors";
 

@@ -28,6 +28,9 @@ const Btn = styled.button`
     textTransform ? textTransform : "uppercase"};
   border: ${({ border }) => (border ? border : "none")};
   cursor: pointer;
+  &:focus {
+    outline: none;
+  }
   ${({ size, theme, color, bgColor }) => {
     switch (size) {
       case "sm":

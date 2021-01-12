@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import ShevronIcon from "./iconsAndLogos/ShevronIcon";
+import ShevronIcon from "../iconsAndLogos/ShevronIcon";
 
 const LeftSectionWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 45%;
-  height: 600;
   /* border: dotted red; */
 `;
 

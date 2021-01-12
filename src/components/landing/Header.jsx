@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-import EazyRentLogo from "./iconsAndLogos/EazyRentLogo";
-import UserImageIcon from "./iconsAndLogos/UserImageIcon";
+import EazyRentLogo from "../iconsAndLogos/EazyRentLogo";
+import UserImageIcon from "../iconsAndLogos/UserImageIcon";
 
 const Head = styled.header`
   .navlink {
@@ -80,9 +80,11 @@ const Ul = styled.ul`
 function Header({ title, navBar = false }) {
   return (
     <Head>
-      <LogoWrapper>
-        <EazyRentLogo />
-      </LogoWrapper>
+      <NavLink className="navlink" to="/landing">
+        <LogoWrapper>
+          <EazyRentLogo />
+        </LogoWrapper>
+      </NavLink>
       <SignInAndUserContainer>
         {navBar && (
           <Ul>
