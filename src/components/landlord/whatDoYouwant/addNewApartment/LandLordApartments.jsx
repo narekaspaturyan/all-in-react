@@ -4,17 +4,23 @@ import PlusIcon from "../../../iconsAndLogos/plusIcon";
 
 import StyledButton from "../../../utils/StyledButton";
 import HeaderSpan from "../../../utils/HeaderSpan";
+import ApartmentCard from "./ApartmentCard";
 
 const Wrapper = styled.div`
-  display: flex;
   background-color: ${({ theme }) => theme.white};
 `;
 
 const InnerWrapper = styled.div`
   display: flex;
-  align-items: space-between;
+  justify-content: space-between;
+  align-items: center;
   margin: 30px 50px;
   background-color: ${({ theme }) => theme.white};
+  border: dotted red;
+`;
+
+const ApartmentWrapper = styled.div`
+  margin: 60px;
 `;
 
 function LandLordApartments(props) {
@@ -22,10 +28,14 @@ function LandLordApartments(props) {
     <Wrapper>
       <InnerWrapper>
         <HeaderSpan>My Apartments</HeaderSpan>
-        <StyledButton width="284px" height="52px">
-          <PlusIcon /> Add New Apartment
+        <StyledButton width="284px" height="52px" justifyContent="center">
+          <PlusIcon margin="0 10px 0 0" /> Add New Apartment
         </StyledButton>
       </InnerWrapper>
+      <ApartmentWrapper>
+        {" "}
+        <ApartmentCard />
+      </ApartmentWrapper>
     </Wrapper>
   );
 }

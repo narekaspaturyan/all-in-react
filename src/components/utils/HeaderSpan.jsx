@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 const HeaderSpan = styled.span`
-  height: 29px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* font-family: Avenir; */
   font-style: normal;
   font-weight: 900;

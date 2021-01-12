@@ -7,6 +7,7 @@ const DivWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: ${({ margin }) => margin};
 `;
 
 const Div1 = styled.span`
@@ -38,9 +39,9 @@ const Div1 = styled.span`
   }
 `;
 
-function PlusIcon(props) {
+function PlusIcon({ margin = "0px" }) {
   return (
-    <DivWrapper>
+    <DivWrapper margin={margin}>
       <Div1></Div1>
     </DivWrapper>
   );
