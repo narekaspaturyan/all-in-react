@@ -20,15 +20,18 @@ const FormWrapper = styled.div`
   position: static;
   width: 440px;
   height: 400px;
-  left: 0px;
-  top: 0px;
-  background: ${(props) => props.theme.white};
+  background: ${({ theme }) => theme.white};
   box-shadow: 0px 15px 30px rgba(134, 117, 79, 0.12);
   border-radius: 0px 0px 5px 5px;
   flex: none;
   order: 0;
   flex-grow: 0;
   margin: 0px 0px;
+
+  @media (max-width: 767px) {
+    width: 330px;
+    height: 450px;
+  }
 `;
 
 const Form = styled.form`
@@ -40,13 +43,12 @@ const Form = styled.form`
 
 const Span1 = styled.span`
   height: 29px;
-  top: calc(50% - 29px / 2 - 140.5px);
   /* font-family: Avenir; */
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
   line-height: 120%;
-  color: ${(props) => props.theme.dark_Grey}; ;
+  color: ${({ theme }) => theme.dark_Grey}; ;
 `;
 
 const Span2 = styled.span`
@@ -57,7 +59,7 @@ const Span2 = styled.span`
   font-weight: 800;
   font-size: 14px;
   line-height: 150%;
-  color: ${(props) => props.theme.dark_Grey};
+  color: ${({ theme }) => theme.dark_Grey};
 `;
 
 const Span3 = styled.span`
@@ -71,13 +73,19 @@ const Span3 = styled.span`
   align-items: center;
   color: #202020;
   margin: 0 105px 0 20px;
-  /* color: ${(props) => props.theme.dark_Grey}; */
+  /* @media (max-width: 767px) {
+    margin: 0px;
+  } */
 `;
 
 const CheckboxButtonWrapper = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const Checkbox = styled.input`
@@ -86,6 +94,17 @@ const Checkbox = styled.input`
   height: 22px;
   width: 22px;
   margin: 0;
+`;
+
+const CheckboxAndTitleWrapper = styled.div`
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 767px) {
+    margin: 20px 0;
+  }
 `;
 
 function Login(props) {
@@ -99,8 +118,10 @@ function Login(props) {
           <Input margin="20px 0" type="password" placeholder="Password" />
 
           <CheckboxButtonWrapper>
-            <Checkbox type="checkbox" />
-            <Span3>Remember Data</Span3>
+            <CheckboxAndTitleWrapper>
+              <Checkbox type="checkbox" />
+              <Span3>Remember Data</Span3>
+            </CheckboxAndTitleWrapper>
             <Button title="Login" />
           </CheckboxButtonWrapper>
         </Form>

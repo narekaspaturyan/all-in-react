@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: ${(props) => props.theme.white};
+  background-color: ${({ theme }) => theme.white};
 `;
 
 const InnerWrapper = styled.div`
@@ -16,7 +16,7 @@ const InnerWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.theme.white};
+  background-color: ${({ theme }) => theme.white};
 `;
 
 const Span1 = styled.span`
@@ -28,7 +28,7 @@ const Span1 = styled.span`
   line-height: 43px;
   letter-spacing: 0px;
   text-align: center;
-  color: ${(props) => props.theme.dark_Grey}; ;
+  color: ${({ theme }) => theme.dark_Grey}; ;
 `;
 
 const Span2 = styled.span`
@@ -43,7 +43,7 @@ const Span2 = styled.span`
   align-items: center;
   margin: 10px 0;
   width: 200px;
-  color: ${(props) => props.theme.light_Grey_Inactive};
+  color: ${({ theme }) => theme.light_Grey_Inactive};
 `;
 
 const Button = styled.button`
@@ -58,8 +58,8 @@ const Button = styled.button`
   letter-spacing: 0.7px;
   text-transform: uppercase;
   border: none;
-  background-color: ${(props) => props.theme.white};
-  color: ${(props) => props.theme.blue};
+  background-color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.blue};
   text-transform: uppercase;
   &:hover {
     text-decoration: underline;

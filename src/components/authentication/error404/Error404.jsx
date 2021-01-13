@@ -10,6 +10,10 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   height: auto;
+  @media (max-width: 767px) {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const WrapperLeft = styled.div`
@@ -18,7 +22,12 @@ const WrapperLeft = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: flex-start;
-  background-color: ${(props) => props.theme.white};
+  background-color: ${({ theme }) => theme.white};
+
+  @media (max-width: 767px) {
+    align-items: center;
+    margin: 100px 0 0 0px;
+  }
 `;
 
 const Span1 = styled.span`
@@ -30,7 +39,14 @@ const Span1 = styled.span`
   font-weight: 900;
   font-size: 36px;
   line-height: 120%;
-  color: ${(props) => props.theme.blue_Grey}; ;
+  color: ${({ theme }) => theme.blue_Grey};
+
+  @media (max-width: 767px) {
+    text-align: center;
+    width: 300px;
+    height: 180px;
+    margin: 30px 0 50px 0;
+  }
 `;
 
 const WrapperRight = styled.div`
@@ -38,6 +54,9 @@ const WrapperRight = styled.div`
   height: 500px;
   display: flex;
   flex-direction: column;
+  @media (max-width: 1150px) {
+    display: none;
+  }
 `;
 
 const BigImageWrapper = styled.div`

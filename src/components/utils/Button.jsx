@@ -58,6 +58,10 @@ const Btn = styled.button`
       backgroundColor: theme.blue,
     };
   }}
+
+  @media (max-width: 767px) {
+    width: 160px;
+  }
 `;
 
 function Button({

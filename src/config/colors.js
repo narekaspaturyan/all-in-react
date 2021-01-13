@@ -13,3 +13,12 @@ export default {
   text_Grey: "#4f4f4f",
   white: "#fff",
 };
+
+/* @media (max-width: 1200px) {
+  }
+}
+@media (max-width: 992) {
+  } */
+// @media (max-width: 767px) {
+
+//  }

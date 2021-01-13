@@ -5,6 +5,7 @@ import Card from "./Card";
 import smallImage from "./img/small.png";
 
 const FooterWrapper = styled.footer`
+  z-index: 1;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -14,8 +15,8 @@ const FooterWrapper = styled.footer`
 
 const SmallImageWrapper = styled.div`
   position: absolute;
-  right: 263px;
-  top: 430px;
+  right: 300px;
+  top: 443px;
 `;
 
 function Footer(props) {

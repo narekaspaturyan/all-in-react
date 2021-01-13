@@ -24,13 +24,17 @@ const FormWrapper = styled.div`
   height: fit-content;
   left: 0px;
   top: 0px;
-  background: ${(props) => props.theme.white};
+  background: ${({ theme }) => theme.white};
   box-shadow: 0px 15px 30px rgba(134, 117, 79, 0.12);
   border-radius: 0px 0px 5px 5px;
   flex: none;
   order: 0;
   flex-grow: 0;
   margin: 0px 0px;
+
+  @media (max-width: 767px) {
+    width: 330px;
+  }
 `;
 
 const Form = styled.form`
@@ -48,7 +52,7 @@ const Span1 = styled.span`
   font-weight: 900;
   font-size: 24px;
   line-height: 120%;
-  color: ${(props) => props.theme.dark_Grey}; ;
+  color: ${({ theme }) => theme.dark_Grey}; ;
 `;
 
 const Span2 = styled.span`
@@ -59,7 +63,7 @@ const Span2 = styled.span`
   font-weight: 800;
   font-size: 14px;
   line-height: 150%;
-  color: ${(props) => props.theme.dark_Grey};
+  color: ${(theme) => theme.dark_Grey};
 `;
 const Span3 = styled.span`
   height: 21px;
@@ -72,13 +76,21 @@ const Span3 = styled.span`
   align-items: center;
   color: #202020;
   margin: 30px 0;
-  /* color: ${(props) => props.theme.dark_Grey}; */
+
+  @media (max-width: 767px) {
+    width: 240px;
+    margin: 40px 0px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 360px;
+
+  @media (max-width: 767px) {
+    width: 240px;
+  }
 `;
 
 function NewPassword(props) {

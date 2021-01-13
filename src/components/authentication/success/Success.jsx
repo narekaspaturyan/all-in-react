@@ -8,10 +8,8 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background-color: ${(props) => props.theme.white};
+  margin-top: 100px;
+  background-color: ${({ theme }) => theme.white};
 `;
 
 const InnerWrapper = styled.div`
@@ -19,7 +17,7 @@ const InnerWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.theme.white};
+  background-color: ${({ theme }) => theme.white};
 `;
 
 const Span1 = styled.span`
@@ -31,7 +29,7 @@ const Span1 = styled.span`
   line-height: 43px;
   letter-spacing: 0px;
   text-align: center;
-  color: ${(props) => props.theme.dark_Grey}; ;
+  color: ${({ theme }) => theme.dark_Grey}; ;
 `;
 
 const Span2 = styled.span`
@@ -46,7 +44,7 @@ const Span2 = styled.span`
   align-items: center;
   margin: 10px 0;
   width: 250px;
-  color: ${(props) => props.theme.light_Grey_Inactive};
+  color: ${({ theme }) => theme.light_Grey_Inactive};
 `;
 
 function Success(props) {

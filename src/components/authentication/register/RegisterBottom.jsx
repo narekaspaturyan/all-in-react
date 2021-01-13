@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   margin: 20px 0;
-  background-color: ${(props) => props.theme.white};
+  background-color: ${({ theme }) => theme.white};
   height: 60px;
   width: fit-content;
   display: flex;
@@ -14,14 +14,13 @@ const Wrapper = styled.div`
 
 const Span1 = styled.span`
   height: 29px;
-  top: calc(50% - 29px / 2 - 140.5px);
   /* font-family: Avenir; */
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
   line-height: 120%;
   margin-bottom: 20px;
-  color: ${(props) => props.theme.dark_Grey}; ;
+  color: ${({ theme }) => theme.dark_Grey}; ;
 `;
 
 const Div = styled.div`
@@ -30,7 +29,10 @@ const Div = styled.div`
   align-items: center;
   width: 480px;
   height: 52px;
-  background-color: ${(props) => props.theme.light_Grey}; ;
+  background-color: ${({ theme }) => theme.light_Grey};
+  @media (max-width: 767px) {
+    width: 240px;
+  }
 `;
 
 const ButtonTenat = styled.button`
@@ -57,6 +59,10 @@ const ButtonTenat = styled.button`
       };
     } else return theme.light_Grey;
   }};
+
+  @media (max-width: 767px) {
+    width: 120px;
+  }
 `;
 
 const ButtonLandLord = styled.button`
@@ -83,6 +89,10 @@ const ButtonLandLord = styled.button`
       };
     } else return theme.light_Grey;
   }};
+
+  @media (max-width: 767px) {
+    width: 120px;
+  }
 `;
 
 function RegisterBottom(props) {

@@ -9,7 +9,8 @@ const Head = styled.header`
   .navlink {
     color: ${(props) => props.theme.text_Grey};
   }
-  position: relative;
+  position: fixed;
+  z-index: 1000;
   left: 0%;
   right: 0%;
   top: 0%;

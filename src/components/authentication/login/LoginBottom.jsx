@@ -16,6 +16,9 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 767px) {
+    width: 330px;
+  }
 `;
 
 const Span1 = styled.span`

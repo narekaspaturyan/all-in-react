@@ -10,6 +10,45 @@ const Div = styled.div`
   width: ${({ width }) => {
     return width ? width : "480px";
   }};
+
+  @media (max-width: 767px) {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    width: 240px;
+  }
+`;
+
+const Span = styled.span`
+  font-size: 14px;
+  font-style: "normal";
+  font-weight: "800";
+  line-height: "21px";
+  letter-spacing: "0px";
+  text-align: "left";
+  margin: 0;
+  color: "2E3034";
+  @media (max-width: 767px) {
+    margin: 20px 0 10px 0;
+  }
+`;
+
+const BarWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  height: 20px;
+  border: 1px solid "#D6C8A8";
+  background: "#FCFBF8";
+  width: ${({ width }) => {
+    return width
+      ? (() => {
+          return parseInt(width) - 100 + "px";
+        })()
+      : "360px";
+  }};
+  border-radius: 8px;
+  @media (max-width: 767px) {
+    width: 240px;
+  }
 `;
 
 const PasswordStrengthMeter = ({ password, width }) => {
@@ -60,39 +99,10 @@ const PasswordStrengthMeter = ({ password, width }) => {
 
   return (
     <Div width={width}>
-      <span
-        style={{
-          // font-family: Avenir;
-          fontSize: "14px",
-          fontStyle: "normal",
-          fontWeight: "800",
-          lineHeight: "21px",
-          letterSpacing: "0px",
-          textAlign: "left",
-          margin: 0,
-          color: "2E3034",
-        }}
-      >
-        {"security"}
-      </span>
-      <div
-        className="progress"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          height: "20px",
-          border: " 1px solid #D6C8A8",
-          background: "#FCFBF8",
-          width: width
-            ? (() => {
-                return parseInt(width) - 100 + "px";
-              })()
-            : "360px",
-          borderRadius: "8px",
-        }}
-      >
+      <Span>{"security"}</Span>
+      <BarWrapper width={width} className="progress">
         <div className="progress-bar" style={changePasswordColor()}></div>
-      </div>
+      </BarWrapper>
     </Div>
   );
 };

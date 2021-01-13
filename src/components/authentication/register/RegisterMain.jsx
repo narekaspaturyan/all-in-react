@@ -7,7 +7,12 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: ${(props) => props.theme.white};
+  background-color: ${({ theme }) => theme.white};
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    width: 330px;
+  }
 `;
 
 const Span = styled.span`
@@ -20,6 +25,10 @@ const Span = styled.span`
   height: 95px;
   font-size: 36px;
   margin: 50px 0 0 50px;
+  @media (max-width: 767px) {
+    height: 50px;
+    margin: 50px 0 0 25px;
+  }
 `;
 
 function RegisterMain(props) {

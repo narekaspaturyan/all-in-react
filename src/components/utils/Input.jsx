@@ -31,6 +31,9 @@ const InputField = styled.input`
   ${({ type, height, width }) => {
     return { type, width, height };
   }}
+  @media (max-width: 767px) {
+    width: 240px;
+  }
 `;
 
 function Input({

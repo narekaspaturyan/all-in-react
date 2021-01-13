@@ -20,15 +20,17 @@ const FormWrapper = styled.div`
   position: static;
   width: 440px;
   height: 290px;
-  left: 0px;
-  top: 0px;
-  background: ${(props) => props.theme.white};
+  background: ${({ theme }) => theme.white};
   box-shadow: 0px 15px 30px rgba(134, 117, 79, 0.12);
   border-radius: 0px 0px 5px 5px;
   flex: none;
   order: 0;
   flex-grow: 0;
   margin: 0px 0px;
+
+  @media (max-width: 767px) {
+    width: 330px;
+  }
 `;
 
 const Form = styled.form`
@@ -40,13 +42,12 @@ const Form = styled.form`
 
 const Span1 = styled.span`
   height: 29px;
-  top: calc(50% - 29px / 2 - 140.5px);
   /* font-family: Avenir; */
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
   line-height: 120%;
-  color: ${(props) => props.theme.dark_Grey}; ;
+  color: ${({ theme }) => theme.dark_Grey}; ;
 `;
 
 const Span2 = styled.span`
@@ -57,7 +58,7 @@ const Span2 = styled.span`
   font-weight: 800;
   font-size: 14px;
   line-height: 150%;
-  color: ${(props) => props.theme.dark_Grey};
+  color: ${({ theme }) => theme.dark_Grey};
 `;
 
 function ForgotPassword(props) {
