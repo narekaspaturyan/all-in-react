@@ -67,7 +67,8 @@ function ForgotPassword(props) {
         <Span1>You forgot something?</Span1>
         <Span2>Enter you E-Mail and reset Password</Span2>
         <Form>
-          <Input placeholder="E-mail" />
+          {/* check input type */}
+          <Input type="email" placeholder="E-mail" />
           <Button margin="20px 0px" title="Reset Password" size="lg" />
         </Form>
       </FormWrapper>
