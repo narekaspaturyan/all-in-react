@@ -10,6 +10,8 @@ const StyledButton = styled.button`
 
     color = theme.white,
 
+    disabled = false,
+
     fontStyle = "normal",
     fontSize = "14px",
     fontWeight = 900,
@@ -19,6 +21,7 @@ const StyledButton = styled.button`
 
     textAlign = "center",
     textTransform = "uppercase",
+    type = "button",
 
     width = "110px",
     height = "40px",
@@ -37,6 +40,8 @@ const StyledButton = styled.button`
       color,
       cursor: "pointer",
 
+      disabled,
+
       ":focus": {
         outline: "none",
       },
@@ -50,7 +55,7 @@ const StyledButton = styled.button`
       textAlign,
       textTransform,
       theme,
-
+      type,
       width,
       height,
       margin,

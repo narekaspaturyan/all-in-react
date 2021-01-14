@@ -16,7 +16,6 @@ const InnerWrapper = styled.div`
   align-items: center;
   margin: 30px 50px;
   background-color: ${({ theme }) => theme.white};
-  border: dotted red;
 `;
 
 const ApartmentWrapper = styled.div`
@@ -34,6 +33,7 @@ function LandLordApartments(props) {
       </InnerWrapper>
       <ApartmentWrapper>
         {" "}
+        <ApartmentCard />
         <ApartmentCard />
       </ApartmentWrapper>
     </Wrapper>

@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "../../utils/Button";
+import StyledButton from "../../utils/StyledButton";
 import Input from "../../utils/Input";
+import CheckBox from "../../utils/CheckBox";
 import LoginBottom from "./LoginBottom";
+
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,7 +23,7 @@ const FormWrapper = styled.div`
   padding: 30px;
   position: static;
   width: 440px;
-  height: 400px;
+  height: 410px;
   background: ${({ theme }) => theme.white};
   box-shadow: 0px 15px 30px rgba(134, 117, 79, 0.12);
   border-radius: 0px 0px 5px 5px;
@@ -30,11 +34,11 @@ const FormWrapper = styled.div`
 
   @media (max-width: 767px) {
     width: 330px;
-    height: 450px;
+    height: 480px;
   }
 `;
 
-const Form = styled.form`
+const FormInnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -48,7 +52,7 @@ const Span1 = styled.span`
   font-weight: 900;
   font-size: 24px;
   line-height: 120%;
-  color: ${({ theme }) => theme.dark_Grey}; ;
+  color: ${({ theme }) => theme.dark_Grey};
 `;
 
 const Span2 = styled.span`
@@ -82,18 +86,11 @@ const CheckboxButtonWrapper = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
+  margin-top: 10px;
   @media (max-width: 767px) {
     flex-direction: column;
     align-items: flex-start;
   }
-`;
-
-const Checkbox = styled.input`
-  border: 1px solid #002052;
-  border-radius: 3px;
-  height: 22px;
-  width: 22px;
-  margin: 0;
 `;
 
 const CheckboxAndTitleWrapper = styled.div`
@@ -107,24 +104,87 @@ const CheckboxAndTitleWrapper = styled.div`
   }
 `;
 
-function Login(props) {
+function Login() {
   return (
     <Wrapper>
       <FormWrapper>
         <Span1>Hi, do we know you?</Span1>
         <Span2>Log in with the account?</Span2>
-        <Form>
-          <Input margin="20px 0" placeholder="E-mail" />
-          <Input margin="20px 0" type="password" placeholder="Password" />
+        <Formik
+          initialValues={{ email: "", password: "", rememberData: false }}
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(() => {
+              console.log("Logging in", values);
+              setSubmitting(false);
+            }, 500);
+          }}
+          validationSchema={Yup.object().shape({
+            email: Yup.string().email().required("Required"),
+            rememberData: Yup.boolean().oneOf([false]),
+            password: Yup.string()
+              .required("No password provided.")
+              .min(8, "Password is too short - should be 8 chars minimum.")
+              .matches(/(?=.*[0-9])/, "Password must contain a number."),
+          })}
+        >
+          {({
+            values,
+            touched,
+            errors,
+            isSubmitting,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+          }) => {
+            return (
+              <FormInnerWrapper>
+                <form onSubmit={handleSubmit}>
+                  <Input
+                    margin="20px 0"
+                    name="email"
+                    type="text"
+                    placeholder="Enter your email"
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={errors.email && touched.email && "error"}
+                  />
+                  {errors.email && touched.email && (
+                    <div className="input-feedback">{errors.email}</div>
+                  )}
+                  <Input
+                    margin="20px 0"
+                    name="password"
+                    type="password"
+                    placeholder="Enter your password"
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={errors.password && touched.password && "error"}
+                  />
+                  {errors.password && touched.password && (
+                    <div className="input-feedback">{errors.password}</div>
+                  )}
 
-          <CheckboxButtonWrapper>
-            <CheckboxAndTitleWrapper>
-              <Checkbox type="checkbox" />
-              <Span3>Remember Data</Span3>
-            </CheckboxAndTitleWrapper>
-            <Button title="Login" />
-          </CheckboxButtonWrapper>
-        </Form>
+                  <CheckboxButtonWrapper>
+                    <CheckboxAndTitleWrapper>
+                      <CheckBox
+                        onChange={handleChange}
+                        name="rememberData"
+                        value={values.rememberData}
+                        type="checkbox"
+                      />
+                      <Span3>Remember Data</Span3>
+                    </CheckboxAndTitleWrapper>
+                    <StyledButton type="submit" disabled={isSubmitting}>
+                      Login
+                    </StyledButton>
+                  </CheckboxButtonWrapper>
+                </form>
+              </FormInnerWrapper>
+            );
+          }}
+        </Formik>
       </FormWrapper>
       <LoginBottom />
     </Wrapper>

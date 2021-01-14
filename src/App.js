@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import React, { useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import styled from "styled-components";
@@ -18,7 +18,7 @@ import LandingMobile from "./components/landing/landingMobile/LandingMobile";
 import LandLordApartments from "./components/landlord/whatDoYouwant/addNewApartment/LandLordApartments";
 
 const PaddingDiv = styled.div`
-  padding: 40px;
+  padding-top: 40px;
 `;
 
 function App() {
@@ -30,8 +30,8 @@ function App() {
         <PaddingDiv>
           {/* <LandingMobile /> */}
           <Header title={user ? "Account" : "SignIn"} navBar={user} />{" "}
-          {/* <LandLordApartments /> */}
-          <Switch>
+          <LandLordApartments />
+          {/* <Switch>
             <Route path="/register" component={RegisterMain} />
             <Route path="/landing" component={Landing} />
             <Route path="/account" component={YourProfileMain} />
@@ -39,7 +39,7 @@ function App() {
             <Route path="/forgotPassword" component={ForgotPassword} />
             <Route path="/notFound" component={Error404} />
             <Redirect to="/landing" />
-          </Switch>
+          </Switch> */}
           {/* <Error404 /> */}
           {/* <WhatDoYouWant /> */}
           {/* <NewPassword /> */}

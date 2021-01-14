@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Button from "../../utils/Button";
-import Input from "../../utils/Input";
-import RegisterBottom from "./RegisterBottom";
+import { Formik } from "formik";
+import * as Yup from "yup";
 
+import CheckBox from "../../utils/CheckBox";
+import Input from "../../utils/Input";
 import Select from "../../utils/Select";
+
+import RegisterBottom from "./RegisterBottom";
 import PasswordStrengthMeter from "./PasswordStrengthMeter";
+import StyledButton from "../../utils/StyledButton";
 
 const Wrapper = styled.div`
   display: flex;
@@ -13,13 +17,11 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
-  width: 100vw;
   form {
     @media (max-width: 767px) {
       width: 270px;
     }
   }
-
   @media (max-width: 767px) {
     width: 300px;
   }
@@ -103,14 +105,6 @@ const CheckboxButtonWrapper = styled.div`
   flex-direction: column;
 `;
 
-const Checkbox = styled.input`
-  border: 2px solid #002052;
-  border-radius: 3px;
-  height: 22px;
-  width: 22px;
-  margin: 0px 20px 0px 0;
-`;
-
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -122,51 +116,190 @@ const ButtonWrapper = styled.div`
 `;
 
 function Register(props) {
-  const [password, setPassword] = useState("");
-
   return (
     <Wrapper>
       <FormWrapper>
         <Span1>Nice to meet you, fill in your data</Span1>
         <Div>
           <Select />
-          <form>
-            <Input width="480px" margin="10px 0" placeholder="Full Name" />
-            <Input width="480px" margin="10px 0" placeholder="E-mail" />
-            <Input
-              width="480px"
-              margin="10px 0"
-              type="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <Input
-              width="480px"
-              margin="10px 0"
-              type="password"
-              placeholder="Repeat Password"
-            />
+          <Formik
+            initialValues={{
+              email: "",
+              password: "",
+              repeatPassword: "",
+              fullName: "",
+              termsAndConditions: false,
+              privacyPolicy: false,
+            }}
+            onSubmit={(values, { setSubmitting }) => {
+              setTimeout(() => {
+                console.log("Logging in", values);
+                setSubmitting(false);
+              }, 500);
+            }}
+            validationSchema={Yup.object().shape({
+              fullName: Yup.string()
+                .min(1, "Full Name  is too short - should be 1 chars minimum.")
+                .max(
+                  50,
+                  "Full Name  is too long - should be no more than 50 chars."
+                )
+                .required("Required"),
+              email: Yup.string().email().required("Required"),
+              password: Yup.string()
+                .required("No password provided.")
+                .min(8, "Password is too short - should be 8 chars minimum.")
+                .matches(/(?=.*[0-9])/, "Password must contain a number."),
+              repeatPassword: Yup.string()
+                .when("password", {
+                  is: (val) => (val && val.length > 0 ? true : false),
+                  then: Yup.string().oneOf(
+                    [Yup.ref("password")],
+                    "Both password need to be the same"
+                  ),
+                })
+                .required("Both password need to be the same"),
+              termsAndConditions: Yup.boolean().oneOf(
+                [true],
+                "You should accept Terms and conditions"
+              ),
 
-            <PasswordStrengthMeter password={password} />
-            <Span3>
-              Your password should consist of at least 8 characters including at
-              least 1 digit and at least 1 special character.
-            </Span3>
-            <CheckboxButtonWrapper>
-              <Span2>
-                <Checkbox type="checkbox" /> Accept privacy policy
-              </Span2>
-              <Span2>
-                {" "}
-                <Checkbox type="checkbox" />
-                Accept Terms and conditions
-              </Span2>
-            </CheckboxButtonWrapper>
-            <RegisterBottom />
-            <ButtonWrapper>
-              <Button title="Register" size="xl" />
-            </ButtonWrapper>
-          </form>
+              privacyPolicy: Yup.boolean().oneOf(
+                [true],
+                "You should accept Privacy policy"
+              ),
+            })}
+          >
+            {({
+              values,
+              touched,
+              errors,
+              isSubmitting,
+              handleChange,
+              handleBlur,
+              handleSubmit,
+            }) => {
+              return (
+                <form onSubmit={handleSubmit}>
+                  <Input
+                    width="480px"
+                    margin="10px 0"
+                    placeholder="Full Name"
+                    name="fullName"
+                    value={values.emailfullName}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={errors.fullName && touched.fullName && "error"}
+                  />
+                  {errors.fullName && touched.fullName && (
+                    <div className="input-RegisterFeedback">
+                      {errors.fullName}
+                    </div>
+                  )}
+                  <Input
+                    name="email"
+                    width="480px"
+                    margin="10px 0"
+                    placeholder="E-mail"
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={errors.email && touched.email && "error"}
+                  />
+                  {errors.email && touched.email && (
+                    <div className="input-RegisterFeedback">{errors.email}</div>
+                  )}
+                  <Input
+                    name="password"
+                    width="480px"
+                    margin="10px 0"
+                    type="password"
+                    placeholder="Password"
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={errors.password && touched.password && "error"}
+                  />
+                  {errors.password && touched.password && (
+                    <div className="input-RegisterFeedback">
+                      {errors.password}
+                    </div>
+                  )}
+                  <Input
+                    name="repeatPassword"
+                    width="480px"
+                    margin="10px 0"
+                    type="password"
+                    placeholder="Repeat Password"
+                    value={values.repeatPassword}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={
+                      errors.repeatPassword && touched.repeatPassword && "error"
+                    }
+                  />
+                  {errors.repeatPassword && touched.repeatPassword && (
+                    <div className="input-RegisterFeedback">
+                      {errors.repeatPassword}
+                    </div>
+                  )}
+                  <PasswordStrengthMeter password={values.password} />
+                  <Span3>
+                    Your password should consist of at least 8 characters
+                    including at least 1 digit and at least 1 special character.
+                  </Span3>
+                  <CheckboxButtonWrapper>
+                    <Span2>
+                      <CheckBox
+                        onChange={handleChange}
+                        value={values.privacyPolicy}
+                        type="checkbox"
+                        name="privacyPolicy"
+                        border="2px solid #002052"
+                        margin="0px 20px 0px 0"
+                      />{" "}
+                      Accept privacy policy
+                    </Span2>
+                    {errors.privacyPolicy && touched.privacyPolicy && (
+                      <span className="input-RegisterFeedback">
+                        {errors.privacyPolicy}
+                      </span>
+                    )}
+                    <Span2>
+                      {" "}
+                      <CheckBox
+                        onChange={handleChange}
+                        value={values.termsAndConditions}
+                        type="checkbox"
+                        name="termsAndConditions"
+                        border="2px solid #002052"
+                        margin="0px 20px 0px 0"
+                      />
+                      Accept Terms and conditions
+                    </Span2>
+                    {errors.termsAndConditions &&
+                      touched.termsAndConditions && (
+                        <span className="input-RegisterFeedback">
+                          {errors.termsAndConditions}
+                        </span>
+                      )}
+                  </CheckboxButtonWrapper>
+                  <RegisterBottom />
+                  <ButtonWrapper>
+                    <StyledButton
+                      fontSize="18px"
+                      width="286px"
+                      height="52px"
+                      type="submit"
+                      disabled={isSubmitting}
+                    >
+                      Register
+                    </StyledButton>
+                  </ButtonWrapper>
+                </form>
+              );
+            }}
+          </Formik>
         </Div>
       </FormWrapper>
     </Wrapper>

@@ -2,7 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import ForgotPasswordBottom from "./ForgotPasswordBottom";
 import Input from "../../utils/Input";
-import Button from "../../utils/Button";
+import StyledButton from "../../utils/StyledButton";
+
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 const Wrapper = styled.div`
   display: flex;
@@ -33,10 +36,10 @@ const FormWrapper = styled.div`
   }
 `;
 
-const Form = styled.form`
+const FormInnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   padding-top: 40px;
 `;
 
@@ -67,11 +70,59 @@ function ForgotPassword(props) {
       <FormWrapper>
         <Span1>You forgot something?</Span1>
         <Span2>Enter you E-Mail and reset Password</Span2>
-        <Form>
-          {/* check input type */}
-          <Input type="email" placeholder="E-mail" />
-          <Button margin="20px 0px" title="Reset Password" size="lg" />
-        </Form>
+        <Formik
+          initialValues={{ email: "" }}
+          onSubmit={(values, { setSubmitting }) => {
+            console.log(values);
+            // setTimeout(() => {
+            //   console.log("Logging in", values);
+            //   setSubmitting(false);
+            // }, 500);
+          }}
+          validationSchema={Yup.object().shape({
+            email: Yup.string().email().required("Required"),
+          })}
+        >
+          {(props) => {
+            const {
+              values,
+              touched,
+              errors,
+              isSubmitting,
+              handleChange,
+              handleBlur,
+              handleSubmit,
+            } = props;
+            return (
+              <FormInnerWrapper>
+                <form onSubmit={handleSubmit}>
+                  <Input
+                    margin="0 0 20px 0"
+                    name="email"
+                    type="text"
+                    placeholder="Enter your email"
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={errors.email && touched.email && "error"}
+                  />
+                  {errors.email && touched.email && (
+                    <div className="input-feedback">{errors.email}</div>
+                  )}
+                  <StyledButton
+                    type="submit"
+                    disabled={isSubmitting}
+                    fontSize="16px"
+                    width="173px"
+                    height="40px"
+                  >
+                    Reset Password
+                  </StyledButton>
+                </form>
+              </FormInnerWrapper>
+            );
+          }}
+        </Formik>
       </FormWrapper>
       <ForgotPasswordBottom />
     </Wrapper>

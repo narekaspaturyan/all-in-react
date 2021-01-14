@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Button from "../../utils/Button";
 import Input from "../../utils/Input";
 
 import NewPasswordBottom from "./NewPasswordBottom";
 import PasswordStrengthMeter from "../register/PasswordStrengthMeter";
+
+import { Formik } from "formik";
+import * as Yup from "yup";
+import StyledButton from "../../utils/StyledButton";
 
 const Wrapper = styled.div`
   display: flex;
@@ -37,7 +40,7 @@ const FormWrapper = styled.div`
   }
 `;
 
-const Form = styled.form`
+const FormInnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -101,26 +104,99 @@ function NewPassword(props) {
       <FormWrapper>
         <Span1>Let’s try again</Span1>
         <Span2>Enter your new Password</Span2>
-        <Form>
-          <Input
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            margin="20px 0"
-            type="password"
-            placeholder="Password"
-          />
-          <Input margin="20px 0" type="password" placeholder="Reset Password" />
-
-          <PasswordStrengthMeter width="360px" password={password} />
-          <Span3>
-            Your password should consist of at least 8 characters including at
-            least 1 digit and at least 1 special character.
-          </Span3>
-          <ButtonWrapper>
-            <Button size="lg" title="Save Password" />
-          </ButtonWrapper>
-        </Form>
+        <Formik
+          initialValues={{
+            password: "",
+            repeatPassword: "",
+          }}
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(() => {
+              console.log("Logging in", values);
+              setSubmitting(false);
+            }, 500);
+          }}
+          validationSchema={Yup.object().shape({
+            password: Yup.string()
+              .required("No password provided.")
+              .min(8, "Password is too short - should be 8 chars minimum.")
+              .matches(/(?=.*[0-9])/, "Password must contain a number."),
+            repeatPassword: Yup.string()
+              .when("password", {
+                is: (val) => (val && val.length > 0 ? true : false),
+                then: Yup.string().oneOf(
+                  [Yup.ref("password")],
+                  "Both password need to be the same"
+                ),
+              })
+              .required("Both password need to be the same"),
+          })}
+        >
+          {({
+            values,
+            touched,
+            errors,
+            isSubmitting,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+          }) => {
+            return (
+              <FormInnerWrapper>
+                <form onSubmit={handleSubmit}>
+                  <Input
+                    name="password"
+                    width="480px"
+                    margin="10px 0"
+                    type="password"
+                    placeholder="Password"
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={errors.password && touched.password && "error"}
+                  />
+                  {errors.password && touched.password && (
+                    <div className="input-RegisterFeedback">
+                      {errors.password}
+                    </div>
+                  )}
+                  <Input
+                    name="repeatPassword"
+                    width="480px"
+                    margin="10px 0"
+                    type="password"
+                    placeholder="Repeat Password"
+                    value={values.repeatPassword}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={
+                      errors.repeatPassword && touched.repeatPassword && "error"
+                    }
+                  />
+                  {errors.repeatPassword && touched.repeatPassword && (
+                    <div className="input-RegisterFeedback">
+                      {errors.repeatPassword}
+                    </div>
+                  )}
+                  <PasswordStrengthMeter password={values.password} />
+                  <Span3>
+                    Your password should consist of at least 8 characters
+                    including at least 1 digit and at least 1 special character.
+                  </Span3>
+                  <ButtonWrapper>
+                    <StyledButton
+                      fontSize="16px"
+                      width="173px"
+                      type="submit"
+                      disabled={isSubmitting}
+                    >
+                      Save Password
+                    </StyledButton>
+                  </ButtonWrapper>
+                </form>
+              </FormInnerWrapper>
+            );
+          }}
+        </Formik>
       </FormWrapper>
       <NewPasswordBottom />
     </Wrapper>

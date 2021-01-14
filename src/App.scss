@@ -1,0 +1,27 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+.content-wrap {
+  flex: 1;
+}
+
+.input-feedback {
+  color: rgb(235, 54, 54);
+  margin-top: -15px;
+  font-size: 14px;
+}
+.input-RegisterFeedback {
+  color: rgb(235, 54, 54);
+  margin-top: -10px;
+  font-size: 14px;
+  @media (max-width: 767px) {
+    width: 200px;
+  }
+}
+input.error {
+  border-color: red;
+}

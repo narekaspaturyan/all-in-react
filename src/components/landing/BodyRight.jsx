@@ -16,6 +16,7 @@ const BigImageWrapper = styled.div`
     height: 100%; */
     position: absolute;
     right: 0;
+    top: 0;
     width: 775.11px;
     height: 972.96px;
   }
