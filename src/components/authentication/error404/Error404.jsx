@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import Button from "../../utils/Button";
+
 import Error404Icon from "../../iconsAndLogos/Error404Icon";
+import StyledButton from "../../utils/StyledButton";
 
 import bigImage from "../../landing/img/main.png";
 
@@ -77,8 +78,10 @@ function Error404(props) {
       <WrapperLeft>
         <Error404Icon />
         <Span1>Sorry, we are already working on fixing this error</Span1>
-        <NavLink to="/landing">
-          <Button margin="0px" size="xl" title="Go to main screen" />
+        <NavLink to="/landing" style={{ textDecoration: "none" }}>
+          <StyledButton fontSize="18px" width="286px" height="52px">
+            Go to main screen
+          </StyledButton>
         </NavLink>
       </WrapperLeft>
       <WrapperRight>

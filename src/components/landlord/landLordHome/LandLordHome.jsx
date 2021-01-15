@@ -3,13 +3,14 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
+  margin: 0 50px;
   justify-content: space-around;
   align-items: center;
   background-color: ${(props) => props.theme.white};
 `;
 const ImageWrapper = styled.div`
   margin-top: 40px;
-  width: 600px;
+  width: 49%;
   height: 440px;
   background-color: ${(props) => props.theme.blue_Grey};
   filter: drop-shadow(0px 4px 35px rgba(0, 0, 0, 0.05));
@@ -30,7 +31,7 @@ const Span = styled.span`
   font-size: 36px;
 `;
 
-function WhatDoYouWant(props) {
+function LandLordHome(props) {
   return (
     <>
       <SpanWrapper>
@@ -44,4 +45,4 @@ function WhatDoYouWant(props) {
   );
 }
 
-export default WhatDoYouWant;
+export default LandLordHome;
