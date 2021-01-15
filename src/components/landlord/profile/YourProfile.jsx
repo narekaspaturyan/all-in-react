@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Input from "../../utils/Input";
-import Btn from "../../utils/Button";
+import Btn from "../../utils/StyledButton";
 
 const Wrapper = styled.div`
   display: flex;
@@ -106,12 +106,9 @@ function YourProfile(props) {
             <Input width="480px" margin="10px 0" placeholder="Phone" />
             <Button>Change Password</Button>
           </Form>
-          <Btn
-            margin="35px 0px 0px 0px"
-            width="480px"
-            height="52px"
-            title="Save chages"
-          />
+          <Btn margin="35px 0px 0px 0px" width="480px" height="52px">
+            Save chages
+          </Btn>
         </FormWrapper>
       </Wrapper>
     </>

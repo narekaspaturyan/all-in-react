@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import SuccessIcon from "../../iconsAndLogos/SuccessIcon";
-import Button from "../../utils/Button";
+
 import colors from "../../../config/colors";
+import StyledButton from "../../utils/StyledButton";
 
 const Wrapper = styled.div`
   display: flex;
@@ -54,12 +55,16 @@ function Success(props) {
         <SuccessIcon />
         <Span1>Success!</Span1>
         <Span2>Your account has been successfully registered</Span2>
-        <Button
+
+        <StyledButton
           margin="40px 0"
-          bgColor={colors.fancy_Green}
-          title="Nice"
-          size="xl"
-        />
+          fontSize="18px"
+          width="286px"
+          backgroundColor={colors.fancy_Green}
+        >
+          {" "}
+          Nice
+        </StyledButton>
       </InnerWrapper>
     </Wrapper>
   );

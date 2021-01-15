@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import image1 from "../../../images/bg.png";
+import image2 from "../../../images/bg2.png";
 const Wrapper = styled.div`
   display: flex;
   margin: 0 50px;
@@ -8,13 +10,19 @@ const Wrapper = styled.div`
   align-items: center;
   background-color: ${(props) => props.theme.white};
 `;
+
 const ImageWrapper = styled.div`
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
+  background-position: center; // remember
   margin-top: 40px;
   width: 49%;
-  height: 440px;
-  background-color: ${(props) => props.theme.blue_Grey};
+  height: 430px;
+  background-color: ${({ theme }) => theme.blue_Grey};
   filter: drop-shadow(0px 4px 35px rgba(0, 0, 0, 0.05));
   border-radius: 10px;
+  background-image: ${({ image }) => `url(${image})`};
 `;
 
 const SpanWrapper = styled.div`
@@ -38,8 +46,8 @@ function LandLordHome(props) {
         <Span>What do you want?</Span>
       </SpanWrapper>
       <Wrapper>
-        <ImageWrapper></ImageWrapper>
-        <ImageWrapper></ImageWrapper>
+        <ImageWrapper image={image1}></ImageWrapper>
+        <ImageWrapper image={image2}></ImageWrapper>
       </Wrapper>
     </>
   );

@@ -15,9 +15,10 @@ const TextSpan = styled.span`
 
     fontSize = "14px",
     fontStyle = "normal",
-    fontWight = "normal",
+    fontWeight = "normal",
 
     textAlign = "center",
+    textTransform = "uppercase",
 
     width = "fit-content",
     height = "42px",
@@ -35,12 +36,15 @@ const TextSpan = styled.span`
 
       fontSize,
       fontStyle,
-      fontWight,
+      fontWeight,
 
       textAlign,
-
+      textTransform,
       width,
       height,
+
+      display: "flex",
+      alignItems: "center",
     };
   }}/* font-family: Avenir; */
 `;

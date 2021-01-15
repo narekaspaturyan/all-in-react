@@ -145,7 +145,7 @@ function NewPassword(props) {
                 <form onSubmit={handleSubmit}>
                   <Input
                     name="password"
-                    width="480px"
+                    width="360px"
                     margin="10px 0"
                     type="password"
                     placeholder="Password"
@@ -161,7 +161,7 @@ function NewPassword(props) {
                   )}
                   <Input
                     name="repeatPassword"
-                    width="480px"
+                    width="360px"
                     margin="10px 0"
                     type="password"
                     placeholder="Repeat Password"
@@ -177,7 +177,10 @@ function NewPassword(props) {
                       {errors.repeatPassword}
                     </div>
                   )}
-                  <PasswordStrengthMeter password={values.password} />
+                  <PasswordStrengthMeter
+                    width="360px"
+                    password={values.password}
+                  />
                   <Span3>
                     Your password should consist of at least 8 characters
                     including at least 1 digit and at least 1 special character.
