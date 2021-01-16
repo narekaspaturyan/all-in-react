@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import Input from "../../utils/Input";
 import Btn from "../../utils/StyledButton";
@@ -74,6 +74,11 @@ const ImageWrapper = styled.div`
   height: 143px;
   border-radius: 10px;
   border: solid 1px ${(props) => props.theme.blue};
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const ImageAndButtonWrapper = styled.div`
@@ -85,15 +90,38 @@ const ImageAndButtonWrapper = styled.div`
 
 function YourProfile(props) {
   const [password, setPassword] = useState("");
+  const [file, setFile] = useState("");
+  const hiddenFileInput = useRef(null);
 
-  console.log(password, "password");
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
+  };
+
+  const handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
+    handleFile(fileUploaded);
+  };
+
+  const handleFile = (fileUploaded) => {
+    setFile(URL.createObjectURL(fileUploaded));
+  };
+
   return (
     <>
       <Wrapper>
         <FormWrapper>
           <ImageAndButtonWrapper>
-            <ImageWrapper>Img</ImageWrapper>
-            <Button width="200px" margin="0px">
+            <ImageWrapper>
+              <img src={file} />
+            </ImageWrapper>
+            <Input
+              type="file"
+              display="none"
+              ref={hiddenFileInput}
+              onChange={handleChange}
+              accept="image/*"
+            />
+            <Button width="200px" margin="0px" onClick={handleClick}>
               Update Image
             </Button>
           </ImageAndButtonWrapper>

@@ -4,6 +4,7 @@ import colors from "../../config/colors";
 const TextSpan = styled.span`
   ${({
     b,
+    alignSelf = "",
 
     backgroundColor = "fff",
     borderRadius = "0px",
@@ -24,6 +25,8 @@ const TextSpan = styled.span`
     height = "42px",
   }) => {
     return {
+      alignSelf,
+
       border: b ? "dotted green" : null,
 
       backgroundColor,

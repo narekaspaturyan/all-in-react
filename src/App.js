@@ -17,6 +17,7 @@ import LandLordHome from "./components/landlord/landLordHome/LandLordHome";
 import LandingMobile from "./components/landing/landingMobile/LandingMobile";
 import LandLordApartments from "./components/landlord/landLordHome/addNewApartment/LandLordApartments";
 import FavoritesMain from "./components/landlord/landLordHome/matchACorrectTenat/favorites/FavoritesMain";
+import ApartmentInfoMain from "./components/landlord/landLordHome/addNewApartment/apartmentInfo/ApartmentInfoMain";
 
 const PaddingDiv = styled.div`
   padding-top: 40px;
@@ -48,6 +49,7 @@ function App() {
             <Route path="/landLordApartments" component={LandLordApartments} />
             <Route path="/success" component={Success} />
             <Route path="/confirmation" component={Confirmation} />
+            <Route path="/apartmentInfo" component={ApartmentInfoMain} />
             <Redirect to="/notFound" />
           </Switch>
         </PaddingDiv>

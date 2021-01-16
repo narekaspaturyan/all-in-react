@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import colors from "../../../config/colors";
 
 import image1 from "../../../images/bg.png";
 import image2 from "../../../images/bg2.png";
+import TextSpan from "../../utils/TextSpan";
 const Wrapper = styled.div`
   display: flex;
   margin: 0 50px;
@@ -12,9 +14,8 @@ const Wrapper = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  /* display: flex; */
-  /* justify-content: center;
-  align-items: center; */
+  display: flex;
+  justify-content: flex-start;
   background-position: center; // remember
   margin-top: 40px;
   width: 49%;
@@ -46,8 +47,30 @@ function LandLordHome(props) {
         <Span>What do you want?</Span>
       </SpanWrapper>
       <Wrapper>
-        <ImageWrapper image={image1}></ImageWrapper>
-        <ImageWrapper image={image2}></ImageWrapper>
+        <ImageWrapper image={image1}>
+          <TextSpan
+            fontWeight={900}
+            fontSize="24px"
+            lineHeight="120%"
+            color={colors.white}
+            alignSelf="flex-end"
+            margin="0 0 30px 40px"
+          >
+            Match A Tenant
+          </TextSpan>
+        </ImageWrapper>
+        <ImageWrapper image={image2}>
+          <TextSpan
+            fontWeight={900}
+            fontSize="24px"
+            lineHeight="120%"
+            color={colors.white}
+            alignSelf="flex-end"
+            margin="0 0 30px 40px"
+          >
+            My Apartments
+          </TextSpan>
+        </ImageWrapper>
       </Wrapper>
     </>
   );

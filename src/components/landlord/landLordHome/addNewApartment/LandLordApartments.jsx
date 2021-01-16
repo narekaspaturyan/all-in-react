@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import PlusIcon from "../../../iconsAndLogos/plusIcon";
 
@@ -45,6 +45,8 @@ const CityNameInfoWrapper = styled.div`
 `;
 
 function LandLordApartments(props) {
+  const [showAppartments, setVisibility] = useState(false);
+
   return (
     <Wrapper>
       <InnerWrapper>
@@ -89,17 +91,22 @@ function LandLordApartments(props) {
           </FlexWrapperDiv>
 
           <TextSpan>
-            <ButtonWithShevron up />
+            <ButtonWithShevron
+              down={!showAppartments}
+              handleClick={() => setVisibility(!showAppartments)}
+            />
           </TextSpan>
         </CityNameInfoWrapper>
         <LineBreak width="100%" />
       </CityNameWrapper>
-
-      <ApartmentWrapper>
-        <ApartmentCard />
-        <ApartmentCard />
-      </ApartmentWrapper>
-
+      {showAppartments ? (
+        <ApartmentWrapper>
+          <ApartmentCard />
+          <ApartmentCard />
+        </ApartmentWrapper>
+      ) : (
+        ""
+      )}
       <CityNameWrapper>
         <CityNameInfoWrapper>
           <TextSpan

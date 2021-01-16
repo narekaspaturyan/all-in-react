@@ -137,6 +137,7 @@ function ApartmentCard(props) {
             fontSize="12px"
             height="24px"
             width="83px"
+            textTransform="lowercase"
           >
             2.3 miles
           </StyledButton>

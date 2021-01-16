@@ -12,6 +12,7 @@ const Input = styled.input`
     borderRadius = "6px",
     color = "#000",
     backgroundColor = "fff",
+    display,
   }) => {
     return {
       type,
@@ -23,6 +24,7 @@ const Input = styled.input`
       borderRadius,
       color,
       backgroundColor,
+      display,
     };
   }}
   border: 1px solid rgba(134, 117, 79, 0.2);

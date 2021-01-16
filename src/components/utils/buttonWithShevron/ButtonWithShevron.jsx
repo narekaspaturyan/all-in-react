@@ -36,6 +36,7 @@ function ButtonWithShevron({
   down,
   backgroudColor,
   shevronColor,
+  handleClick,
 }) {
   return (
     <Wrapper
@@ -44,6 +45,7 @@ function ButtonWithShevron({
       right={right}
       up={up}
       down={down}
+      onClick={handleClick}
     >
       <UpShevronIcon shevronColor={shevronColor} />
     </Wrapper>
