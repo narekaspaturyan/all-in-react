@@ -37,7 +37,7 @@ const SignInAndUserContainer = styled.div`
   height: 15px;
   width: auto;
   right: 20px;
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 900;
   font-size: 12px;
@@ -65,7 +65,7 @@ const Ul = styled.ul`
     display: inline;
     align-items: center;
     justify-content: center;
-    /* font-family: Avenir; */
+    font-family: "Avenir";
     font-style: normal;
     font-weight: 800;
     font-size: 12px;

@@ -35,7 +35,7 @@ const Span1 = styled.span`
   margin: 30px 0 100px 0;
   width: 370px;
   height: 95px;
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 900;
   font-size: 36px;

@@ -75,7 +75,7 @@ const TextWrapper = styled.div`
   margin: 20px 24px;
   width: 326px;
   height: 82px;
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 900;
   font-size: 36px;
@@ -92,7 +92,7 @@ const Button = styled.button`
   width: 325px;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.blue};
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   cursor: pointer;
   border: none;
   &:focus {

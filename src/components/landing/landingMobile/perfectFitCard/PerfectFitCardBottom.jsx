@@ -24,7 +24,7 @@ const RatingWrapper = styled.div`
 const RatingNumberSpan = styled.span`
   height: 18px;
   margin-left: 7px;
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 800;
   font-size: 14px;
@@ -33,7 +33,7 @@ const RatingNumberSpan = styled.span`
 `;
 
 const CostWrapperSpan = styled.span`
-  font-family: Avenir;
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
@@ -52,7 +52,7 @@ const CostAndTatingWraper = styled.div`
 `;
 
 const AddresWrapperSpan = styled.div`
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   margin: 10px 20px;
   height: 30px;
   width: 185px;

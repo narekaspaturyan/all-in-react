@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 
 const Span1 = styled.span`
   height: 29px;
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
@@ -36,7 +36,7 @@ const Div = styled.div`
 `;
 
 const ButtonTenat = styled.button`
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   &:focus {
     outline: none;
   }
@@ -67,7 +67,7 @@ const ButtonTenat = styled.button`
 `;
 
 const ButtonLandLord = styled.button`
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   &:focus {
     outline: none;
   }

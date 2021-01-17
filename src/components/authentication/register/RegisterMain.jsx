@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 
 const Span = styled.span`
   height: 29px;
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 900;
   line-height: 120%;

@@ -32,7 +32,7 @@ const StyledButton = styled.button`
     alignItems = "center",
   }) => {
     return {
-      // fontFamily: Avenir,
+      fontFamily: "Avenir",
       backgroundColor,
       borderRadius,
       border,

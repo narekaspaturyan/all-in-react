@@ -31,7 +31,7 @@ const Span = styled.span`
   height: 22px;
   width: 213px;
   align-self: flex-start;
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 900;
   font-size: 18px;
@@ -54,7 +54,7 @@ const InfoWrapper = styled.div`
 `;
 
 const InfoSpan1 = styled.span`
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   margin-top: 9px;
   font-weight: 900;
@@ -64,7 +64,7 @@ const InfoSpan1 = styled.span`
 `;
 
 const InfoSpan2 = styled.span`
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   margin-top: 9px;
   height: 32px;
   width: 131px;

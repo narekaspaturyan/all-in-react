@@ -50,7 +50,7 @@ const FormInnerWrapper = styled.div`
 const Span1 = styled.span`
   height: 29px;
   top: calc(50% - 29px / 2 - 140.5px);
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
@@ -61,7 +61,7 @@ const Span1 = styled.span`
 const Span2 = styled.span`
   height: 22px;
   margin-top: 20px;
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 800;
   font-size: 14px;
@@ -70,7 +70,7 @@ const Span2 = styled.span`
 `;
 const Span3 = styled.span`
   height: 21px;
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;

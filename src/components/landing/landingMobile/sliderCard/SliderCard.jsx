@@ -24,7 +24,7 @@ const Div = styled.div`
 const Span1 = styled.div`
   width: 125px;
   height: 32px;
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 800;
   font-size: 20px;

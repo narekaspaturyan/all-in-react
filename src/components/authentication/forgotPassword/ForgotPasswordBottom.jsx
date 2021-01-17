@@ -25,7 +25,7 @@ const Wrapper = styled.div`
 const Span1 = styled.span`
   height: 22px;
   margin: 20px 30px;
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;

@@ -4,7 +4,7 @@ const HeaderSpan = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 900;
   line-height: 120%;

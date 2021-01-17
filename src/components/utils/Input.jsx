@@ -13,6 +13,7 @@ const Input = styled.input`
     color = "#000",
     backgroundColor = "fff",
     display,
+    boxShadow = "",
   }) => {
     return {
       type,
@@ -22,6 +23,7 @@ const Input = styled.input`
       placeholder,
       name,
       borderRadius,
+      boxShadow,
       color,
       backgroundColor,
       display,
@@ -29,7 +31,7 @@ const Input = styled.input`
   }}
   border: 1px solid rgba(134, 117, 79, 0.2);
   box-sizing: border-box;
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;

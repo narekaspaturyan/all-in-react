@@ -23,7 +23,7 @@ const CardBottomTextAndArowWrapper = styled.div`
 `;
 
 const Span = styled.span`
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-size: 24px;
   font-style: normal;
   font-weight: 900;

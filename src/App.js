@@ -14,10 +14,13 @@ import NewPassword from "./components/authentication/newPassword/NewPassword";
 import Error404 from "./components/authentication/error404/Error404";
 import YourProfileMain from "./components/landlord/profile/YourProfileMain";
 import LandLordHome from "./components/landlord/landLordHome/LandLordHome";
-import LandingMobile from "./components/landing/landingMobile/LandingMobile";
 import LandLordApartments from "./components/landlord/landLordHome/addNewApartment/LandLordApartments";
 import FavoritesMain from "./components/landlord/landLordHome/matchACorrectTenat/favorites/FavoritesMain";
 import ApartmentInfoMain from "./components/landlord/landLordHome/addNewApartment/apartmentInfo/ApartmentInfoMain";
+import ChooseLocationMain from "./components/landlord/landLordHome/addNewApartment/chooseLocation/ChooseLocationMain";
+import LandAreaAndRoomsMain from "./components/landlord/landLordHome/addNewApartment/landAreaAndNumberOfRooms/LandAreaAndRoomsMain";
+
+import LandingMobile from "./components/landing/landingMobile/LandingMobile";
 
 const PaddingDiv = styled.div`
   padding-top: 40px;
@@ -32,24 +35,31 @@ function App() {
         <PaddingDiv>
           {/* <LandingMobile /> */}
           <Header title={user ? "Account" : "SignIn"} navBar={user} />{" "}
-          {/* <LandLordHome /> */}
-          {/* <FavoritesMain /> */}
-          {/* <LandLordApartments /> */}
           <Switch>
             <Route exact path="/" component={Landing} />
-            <Route path="/landing" component={Landing} />
-            <Route path="/register" component={RegisterMain} />
+
             <Route path="/account" component={YourProfileMain} />
-            <Route path="/login" component={Login} />
-            <Route path="/forgotPassword" component={ForgotPassword} />
-            <Route path="/newPassword" component={NewPassword} />
-            <Route path="/landLordHome" component={LandLordHome} />
-            <Route path="/notFound" component={Error404} />
-            <Route path="/favoriteTenents" component={FavoritesMain} />
-            <Route path="/landLordApartments" component={LandLordApartments} />
-            <Route path="/success" component={Success} />
-            <Route path="/confirmation" component={Confirmation} />
             <Route path="/apartmentInfo" component={ApartmentInfoMain} />
+
+            <Route path="/chooseLocation" component={ChooseLocationMain} />
+            <Route path="/confirmation" component={Confirmation} />
+
+            <Route path="/favoriteTenents" component={FavoritesMain} />
+            <Route path="/forgotPassword" component={ForgotPassword} />
+
+            <Route path="/register" component={RegisterMain} />
+
+            <Route path="/login" component={Login} />
+            <Route path="/landing" component={Landing} />
+            <Route path="/landAreaAndRooms" component={LandAreaAndRoomsMain} />
+            <Route path="/landLordApartments" component={LandLordApartments} />
+            <Route path="/landLordHome" component={LandLordHome} />
+
+            <Route path="/newPassword" component={NewPassword} />
+            <Route path="/notFound" component={Error404} />
+
+            <Route path="/success" component={Success} />
+
             <Redirect to="/notFound" />
           </Switch>
         </PaddingDiv>

@@ -48,8 +48,9 @@ const TextSpan = styled.span`
 
       display: "flex",
       alignItems: "center",
+      fontFamily: "Avenir",
     };
-  }}/* font-family: Avenir; */
+  }}
 `;
 
 export default TextSpan;

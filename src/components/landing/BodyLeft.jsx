@@ -21,18 +21,18 @@ const LeftSectionInnerWrapper = styled.div`
 `;
 
 const Span1 = styled.span`
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-size: 36px;
   font-style: normal;
   font-weight: 900;
   line-height: 43px;
   letter-spacing: 0px;
   text-align: left;
-  color: ${(props) => props.theme.dark_Grey};
+  color: ${({ theme }) => theme.dark_Grey};
 `;
 
 const Span2 = styled.span`
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   height: 37px;
   width: 318px;
   margin-top: 20px;
@@ -40,7 +40,7 @@ const Span2 = styled.span`
   font-weight: 500;
   font-size: 14px;
   line-height: 150%;
-  color: ${(props) => props.theme.light_Grey_Inactive};
+  color: ${({ theme }) => theme.light_Grey_Inactive};
 `;
 
 const Button = styled.button`
@@ -53,9 +53,8 @@ const Button = styled.button`
   left: 160px;
   top: 329px;
   border-radius: 10px;
-  background-color: ${(props) => props.theme.blue};
-  //styleName: H4_uppercase_14;
-  /* font-family: Avenir; */
+  background-color: ${({ theme }) => theme.blue};
+  font-family: "Avenir";
   cursor: pointer;
   border: none;
 `;
@@ -66,7 +65,7 @@ const ShevronWrapper = styled.span`
   align-items: center;
   width: 44px;
   height: 44px;
-  background-color: #5077bd;
+  background-color: ${(theme) => theme.blue};
   border-radius: 8px;
 `;
 

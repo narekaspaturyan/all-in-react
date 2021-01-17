@@ -20,7 +20,7 @@ const InnerWrapper = styled.div`
 `;
 
 const Span1 = styled.span`
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   margin-top: 35px;
   font-size: 36px;
   font-style: normal;
@@ -32,7 +32,7 @@ const Span1 = styled.span`
 `;
 
 const Span2 = styled.span`
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -47,7 +47,7 @@ const Span2 = styled.span`
 `;
 
 const Button = styled.button`
-  /* font-family: Avenir; */
+  font-family: "Avenir";
   margin-top: 30px;
   font-style: normal;
   font-weight: 900;
