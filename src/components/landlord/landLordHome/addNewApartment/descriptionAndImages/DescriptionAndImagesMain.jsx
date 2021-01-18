@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 import CustomRange from "../../../../utils/CustomRange";
 import StyledButton from "../../../../utils/StyledButton";
-import RoomDetails from "./RoomDetails";
-import SliderWithInfo from "./SliderWithInfo";
+
 import { Link } from "react-router-dom";
+import MultySelect from "./MultySelect";
 
 const Wrapper = styled.div`
   display: flex;
@@ -85,11 +85,12 @@ const BottomInfoWrapper = styled.span`
   padding: 10px 20px;
   margin-top: 10px;
 `;
+
 const WrapperForMargin = styled.div`
   margin: 170px 0 10px 0;
 `;
 
-function LandAreaAndRoomsMain(props) {
+function DescriptionAndImagesMain(props) {
   const [size, setSize] = useState(50);
   const [room, setRoom] = useState(50);
   const [price, setPrice] = useState(50);
@@ -101,7 +102,7 @@ function LandAreaAndRoomsMain(props) {
     <Wrapper>
       <LeftWrapper>
         <SpanWrapper>
-          <CustomRange st1="true" st2="true" st3="true" />
+          <CustomRange st1="true" st2="true" st3="true" st4="true" />
         </SpanWrapper>
 
         <SpanWrapper>
@@ -110,45 +111,10 @@ function LandAreaAndRoomsMain(props) {
       </LeftWrapper>
 
       <RightWrapper>
-        <SectionWrapper>
-          <SliderWithInfo
-            header="Size"
-            count={size}
-            other="qm+"
-            value={size}
-            setValue={setSize}
-          />
-        </SectionWrapper>
-
-        <SectionWrapper>
-          <SliderWithInfo
-            header="Room"
-            count={Math.floor(room / 5)}
-            other="+"
-            value={room}
-            setValue={setRoom}
-          />
-        </SectionWrapper>
-
-        <SectionWrapper>
-          <RoomDetails />
-        </SectionWrapper>
-
-        <SectionWrapper>
-          <SliderWithInfo
-            header="Price"
-            count={price * 200}
-            other="$+"
-            value={price}
-            setValue={setPrice}
-          />{" "}
-          <BottomInfoWrapper>
-            Regular price for a flat with your options is $ {price * 200}
-          </BottomInfoWrapper>
-        </SectionWrapper>
+        <MultySelect />
 
         <WrapperForMargin />
-        <Link style={{ textDecoration: "none" }} to="/descriptionAndImages">
+        <Link style={{ textDecoration: "none" }} to="/">
           <StyledButton margin="0 0 10px 0" height="52px" width="557px">
             Next
           </StyledButton>
@@ -158,4 +124,4 @@ function LandAreaAndRoomsMain(props) {
   );
 }
 
-export default LandAreaAndRoomsMain;
+export default DescriptionAndImagesMain;

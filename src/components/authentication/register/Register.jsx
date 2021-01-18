@@ -5,8 +5,8 @@ import * as Yup from "yup";
 
 import CheckBox from "../../utils/CheckBox";
 import Input from "../../utils/Input";
-import Select from "../../utils/Select";
-
+import FormikControl from "./FormikControl";
+import Select from "react-select";
 import RegisterBottom from "./RegisterBottom";
 import PasswordStrengthMeter from "./PasswordStrengthMeter";
 import StyledButton from "../../utils/StyledButton";
@@ -114,6 +114,11 @@ const ButtonWrapper = styled.div`
     width: 240px;
   }
 `;
+const options = [
+  { key: "Gender", value: "" },
+  { key: "Male", value: "male" },
+  { key: "Female", value: "female" },
+];
 
 function Register(props) {
   return (
@@ -121,9 +126,9 @@ function Register(props) {
       <FormWrapper>
         <Span1>Nice to meet you, fill in your data</Span1>
         <Div>
-          <Select />
           <Formik
             initialValues={{
+              gender: "",
               email: "",
               password: "",
               repeatPassword: "",
@@ -132,12 +137,14 @@ function Register(props) {
               privacyPolicy: false,
             }}
             onSubmit={(values, { setSubmitting }) => {
-              setTimeout(() => {
-                console.log("Logging in", values);
-                setSubmitting(false);
-              }, 500);
+              console.log(values);
+              // setTimeout(() => {
+              //   console.log("Logging in", values);
+              //   setSubmitting(false);
+              // }, 500);
             }}
             validationSchema={Yup.object().shape({
+              gender: Yup.string().required("Required"),
               fullName: Yup.string()
                 .min(1, "Full Name  is too short - should be 1 chars minimum.")
                 .max(
@@ -181,6 +188,17 @@ function Register(props) {
             }) => {
               return (
                 <form onSubmit={handleSubmit}>
+                  <FormikControl
+                    control="select"
+                    label="select a gender"
+                    name="gender"
+                    options={options}
+                  />
+                  {errors.gender && touched.gender && (
+                    <div className="input-RegisterFeedback">
+                      {errors.gender}
+                    </div>
+                  )}
                   <Input
                     width="480px"
                     margin="10px 0"

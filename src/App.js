@@ -21,13 +21,14 @@ import ChooseLocationMain from "./components/landlord/landLordHome/addNewApartme
 import LandAreaAndRoomsMain from "./components/landlord/landLordHome/addNewApartment/landAreaAndNumberOfRooms/LandAreaAndRoomsMain";
 
 import LandingMobile from "./components/landing/landingMobile/LandingMobile";
+import DescriptionAndImagesMain from "./components/landlord/landLordHome/addNewApartment/descriptionAndImages/DescriptionAndImagesMain";
 
 const PaddingDiv = styled.div`
   padding-top: 40px;
 `;
 
 function App() {
-  const [user, setUser] = useState(true); // fetch user
+  const [user, setUser] = useState(false); // fetch user
 
   return (
     <div className="page-container">
@@ -43,6 +44,11 @@ function App() {
 
             <Route path="/chooseLocation" component={ChooseLocationMain} />
             <Route path="/confirmation" component={Confirmation} />
+
+            <Route
+              path="/descriptionAndImages"
+              component={DescriptionAndImagesMain}
+            />
 
             <Route path="/favoriteTenents" component={FavoritesMain} />
             <Route path="/forgotPassword" component={ForgotPassword} />
