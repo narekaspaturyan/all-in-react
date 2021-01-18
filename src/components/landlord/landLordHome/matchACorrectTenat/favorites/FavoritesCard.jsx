@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import colors from "../../../../../config/colors";
 
-import LineBreak from "../../../../utils/lineBreak";
+import LineBreak from "../../../../utils/LineBreak";
 import TextSpan from "../../../../utils/TextSpan";
 import StyledButton from "../../../../utils/StyledButton";
 

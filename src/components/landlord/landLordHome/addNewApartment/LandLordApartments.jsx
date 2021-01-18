@@ -5,7 +5,7 @@ import PlusIcon from "../../../iconsAndLogos/plusIcon";
 import StyledButton from "../../../utils/StyledButton";
 import HeaderSpan from "../../../utils/HeaderSpan";
 import ApartmentCard from "./ApartmentCard";
-import LineBreak from "../../../utils/lineBreak";
+import LineBreak from "../../../utils/LineBreak";
 import TextSpan from "../../../utils/TextSpan";
 import colors from "../../../../config/colors";
 import ButtonWithShevron from "../../../utils/buttonWithShevron/ButtonWithShevron";

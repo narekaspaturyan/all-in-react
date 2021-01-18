@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import colors from "../../../../../config/colors";
+import { Link } from "react-router-dom";
 
 import StyledButton from "../../../../utils/StyledButton";
 import ApartmentInfoButton from "./ApartmentInfoButton";
@@ -106,10 +107,11 @@ function ApartmentInfo(props) {
         setButtonOption={setFurnished}
         bool={furnished}
       />
-
-      <StyledButton height="52px" margin="95px 0 10px 0" width="557px">
-        Next
-      </StyledButton>
+      <Link style={{ textDecoration: "none" }} to="/chooseLocation">
+        <StyledButton height="52px" margin="0 0 10px 0" width="557px">
+          Next
+        </StyledButton>
+      </Link>
     </Wrapper>
   );
 }

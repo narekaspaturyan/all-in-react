@@ -96,7 +96,7 @@ function Header({ title, navBar = false }) {
             </li>
             <li>
               {" "}
-              <NavLink className="navlink" to="/">
+              <NavLink className="navlink" to="/apartmentInfo">
                 Add an Appartment
               </NavLink>
             </li>

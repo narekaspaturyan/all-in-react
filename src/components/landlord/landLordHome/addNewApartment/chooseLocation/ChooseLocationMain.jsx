@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { Link } from "react-router-dom";
 import LocationInfo from "./LocationInfo";
 import CustomRange from "../../../../utils/CustomRange";
 import StyledButton from "../../../../utils/StyledButton";
@@ -57,6 +58,10 @@ const SpanWrapper = styled.div`
   text-align: center;
 `;
 
+const WrapperForMargin = styled.div`
+  margin: 170px 0 10px 0;
+`;
+
 function ChooseLocationMain(props) {
   return (
     <Wrapper>
@@ -72,9 +77,12 @@ function ChooseLocationMain(props) {
 
       <RightWrapper>
         <LocationInfo />
-        <StyledButton height="52px" margin="170px 0 10px 0" width="557px">
-          Next
-        </StyledButton>
+        <WrapperForMargin />
+        <Link style={{ textDecoration: "none" }} to="/landAreaAndRooms">
+          <StyledButton margin="0 0 10px 0" height="52px" width="557px">
+            Next
+          </StyledButton>
+        </Link>
       </RightWrapper>
     </Wrapper>
   );

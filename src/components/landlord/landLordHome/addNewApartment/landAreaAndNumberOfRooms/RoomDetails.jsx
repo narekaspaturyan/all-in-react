@@ -10,11 +10,13 @@ import TextSpan from "../../../../utils/TextSpan";
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: column;
   background-color: ${({ theme }) => theme.white};
+  /* border: dotted red; */
 `;
 
 const InnerWrapper = styled.div`
-  width: 550px;
+  width: 513px;
   display: flex;
   align-items: center;
   background-color: ${({ theme }) => theme.white};
@@ -61,8 +63,20 @@ const CountWrapper = styled.div`
   background-color: ${({ theme }) => theme.white};
 `;
 
+const SpanHeader = styled.span`
+  align-self: flex-start;
+  font-family: "Avenir";
+  text-transform: capitalize;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 22px;
+  color: ${({ theme }) => theme.dark_Grey};
+  margin: 60px 0 40px 0;
+`;
+
 function RoomDetails(props) {
-  const [count, setCount] = useState([
+  const [details, setSetDetails] = useState([
     { name: "bathroom", count: 1 },
     { name: "bedroom", count: 1 },
     { name: "kitchen", count: 1 },
@@ -70,14 +84,27 @@ function RoomDetails(props) {
     { name: "parkning slots", count: 1 },
   ]);
 
-  const handleAddition = () => {};
+  const handleAddition = (name) => {
+    const arr = details.map((el) =>
+      el.name === name ? { ...el, name: el.name, count: (el.count += 1) } : el
+    );
+    setSetDetails(arr);
+  };
 
-  const handleSubtraction = () => {};
+  const handleSubtraction = (name) => {
+    const arr = details.map((el) =>
+      el.name === name && el.count > 1
+        ? { ...el, name: el.name, count: (el.count -= 1) }
+        : el
+    );
+    setSetDetails(arr);
+  };
 
   return (
     <Wrapper>
+      <SpanHeader>Room Details</SpanHeader>
       <InnerWrapper>
-        {count.map((el) => {
+        {details.map((el) => {
           return (
             <CardWrapper key={uid()}>
               <TextSpan

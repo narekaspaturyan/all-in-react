@@ -1,14 +1,20 @@
 import styled from "styled-components";
 
 const LineBreak = styled.hr`
-  ${({ margin = "0px", width = "90%" }) => {
+  ${({
+    margin = "0px",
+    width = "90%",
+    color = "#efefef",
+    borderRadius = "0px",
+  }) => {
     return {
+      backgroundColor: color,
       margin,
       width,
+      borderRadius,
     };
   }}
   height: 1px;
-  background-color: #efefef;
 `;
 
 export default LineBreak;

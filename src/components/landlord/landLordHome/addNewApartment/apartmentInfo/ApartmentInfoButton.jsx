@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  margin: 20px 0;
+  margin: 20px 0 110px 0;
   background-color: ${({ theme }) => theme.white};
   width: fit-content;
   display: flex;
